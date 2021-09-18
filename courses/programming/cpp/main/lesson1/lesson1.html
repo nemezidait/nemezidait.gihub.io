@@ -229,53 +229,54 @@
     <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/loader.js"></script>
     <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
     <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
-    <script>
+<script>
         "use strict";
 
         var editor = null, diffEditor = null;
 
-        $(document).load(function () {
-                const languageMode = 'cpp';
-                const defaultCodeURL = 'https://microsoft.github.io/monaco-editor/index/samples/sample.cpp.txt';
+        $(document).ready(function () {
+            const languageMode = 'cpp';
+            const defaultCodeURL = 'https://microsoft.github.io/monaco-editor/index/samples/sample.cpp.txt';
 
-                let savedCode = localStorage.getItem('cpp_main_lesson1_code');
-                if (savedCode) {
-                    // saved code from db
-                    $('.loading.editor').show();
-                    loadSample(languageMode, savedCode);
-                    $('.loading.editor').fadeOut({ duration: 300 });
-                }
-                else {
-                    // defaul sample
-                    $('.loading.editor').show();
-                    xhr(defaultCodeURL, function (err, data) {
-                        if (err) {
-                            if (editor) {
-                                if (editor.getModel()) {
-                                    editor.getModel().dispose();
-                                }
-                                editor.dispose();
-                                editor = null;
+            let savedCode = localStorage.getItem('cpp_main_lesson1_code');
+            if (savedCode) {
+                // saved code from db
+                $('.loading.editor').show();
+                loadSample(languageMode, savedCode);
+                $('.loading.editor').fadeOut({ duration: 300 });
+            }
+            else {
+                // defaul sample
+                $('.loading.editor').show();
+                xhr(defaultCodeURL, function (err, data) {
+                    if (err) {
+                        if (editor) {
+                            if (editor.getModel()) {
+                                editor.getModel().dispose();
                             }
-                            $('.loading.editor').fadeOut({ duration: 200 });
-                            $('#editor').empty();
-                            $('#editor').append('<p class="alert alert-error">Failed to load ' + languageCode + ' sample</p>');
-                            return;
+                            editor.dispose();
+                            editor = null;
                         }
+                        $('.loading.editor').fadeOut({ duration: 200 });
+                        $('#editor').empty();
+                        $('#editor').append('<p class="alert alert-error">Failed to load ' + languageCode + ' sample</p>');
+                        return;
+                    }
 
-                        loadSample(languageMode, data);
-                        $('.loading.editor').fadeOut({ duration: 300 });
-                    });
+                    loadSample(languageMode, data);
+
+                    $('.loading.editor').fadeOut({ duration: 300 });
+                });
+            }
+
+            window.onresize = function () {
+                if (editor) {
+                    editor.layout();
                 }
-
-                window.onresize = function () {
-                    if (editor) {
-                        editor.layout();
-                    }
-                    if (diffEditor) {
-                        diffEditor.layout();
-                    }
-                };
+                if (diffEditor) {
+                    diffEditor.layout();
+                }
+            };
         });
 
         var preloaded = {};
