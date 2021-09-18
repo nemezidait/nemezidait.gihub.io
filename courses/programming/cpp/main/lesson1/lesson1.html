@@ -239,9 +239,6 @@
         var editor = null, diffEditor = null;
 
         $(document).load(function () {
-            setTimeout(function () {
-                changeTheme(0);
-
                 const languageMode = 'cpp';
                 const defaultCodeURL = 'https://microsoft.github.io/monaco-editor/index/samples/sample.cpp.txt';
 
@@ -271,7 +268,6 @@
                         }
 
                         loadSample(languageMode, data);
-
                         $('.loading.editor').fadeOut({ duration: 300 });
                     });
                 }
@@ -284,7 +280,6 @@
                         diffEditor.layout();
                     }
                 };
-            }, 2000);
         });
 
         var preloaded = {};
@@ -328,6 +323,7 @@
             if (oldModel) {
                 oldModel.dispose();
             }
+            changeTheme(0);
         }
 
         function changeTheme(theme) {
