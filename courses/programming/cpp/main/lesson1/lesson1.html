@@ -239,50 +239,52 @@
         var editor = null, diffEditor = null;
 
         $(document).load(function () {
-            changeTheme(0);
+            setTimeout(function () {
+                changeTheme(0);
 
-            const languageMode = 'cpp';
-            const defaultCodeURL = 'https://microsoft.github.io/monaco-editor/index/samples/sample.cpp.txt';
+                const languageMode = 'cpp';
+                const defaultCodeURL = 'https://microsoft.github.io/monaco-editor/index/samples/sample.cpp.txt';
 
-            let savedCode = localStorage.getItem('cpp_main_lesson1_code');
-            if (savedCode) {
-                // saved code from db
-                $('.loading.editor').show();
-                loadSample(languageMode, savedCode);
-                $('.loading.editor').fadeOut({ duration: 300 });
-            }
-            else {
-                // defaul sample
-                $('.loading.editor').show();
-                xhr(defaultCodeURL, function (err, data) {
-                    if (err) {
-                        if (editor) {
-                            if (editor.getModel()) {
-                                editor.getModel().dispose();
-                            }
-                            editor.dispose();
-                            editor = null;
-                        }
-                        $('.loading.editor').fadeOut({ duration: 200 });
-                        $('#editor').empty();
-                        $('#editor').append('<p class="alert alert-error">Failed to load ' + languageCode + ' sample</p>');
-                        return;
-                    }
-
-                    loadSample(languageMode, data);
-
+                let savedCode = localStorage.getItem('cpp_main_lesson1_code');
+                if (savedCode) {
+                    // saved code from db
+                    $('.loading.editor').show();
+                    loadSample(languageMode, savedCode);
                     $('.loading.editor').fadeOut({ duration: 300 });
-                });
-            }
+                }
+                else {
+                    // defaul sample
+                    $('.loading.editor').show();
+                    xhr(defaultCodeURL, function (err, data) {
+                        if (err) {
+                            if (editor) {
+                                if (editor.getModel()) {
+                                    editor.getModel().dispose();
+                                }
+                                editor.dispose();
+                                editor = null;
+                            }
+                            $('.loading.editor').fadeOut({ duration: 200 });
+                            $('#editor').empty();
+                            $('#editor').append('<p class="alert alert-error">Failed to load ' + languageCode + ' sample</p>');
+                            return;
+                        }
 
-            window.onresize = function () {
-                if (editor) {
-                    editor.layout();
+                        loadSample(languageMode, data);
+
+                        $('.loading.editor').fadeOut({ duration: 300 });
+                    });
                 }
-                if (diffEditor) {
-                    diffEditor.layout();
-                }
-            };
+
+                window.onresize = function () {
+                    if (editor) {
+                        editor.layout();
+                    }
+                    if (diffEditor) {
+                        diffEditor.layout();
+                    }
+                };
+            }, 4000);
         });
 
         var preloaded = {};
