@@ -132,15 +132,6 @@
                   <p><a href="#" class="btn btn-primary">Enroll with this course now</a> <span class="enrolled-count">2,928 students enrolled</span></p>
 		    
                 </div>
-		      <div class="row">
-			<div class="span4">
-			    <label class="control-label">Theme</label>
-			    <select class="theme-picker">
-				<option>Visual Studio Dark</option>
-				<option>Visual Studio</option>
-			    </select>
-			</div>
-		    </div>
 		    <div class="editor-frame">
 			<div class="loading editor" style="display: none;">
 			    <div class="progress progress-striped active">
@@ -278,10 +269,6 @@
                     $('.loading.editor').fadeOut({ duration: 300 });
                 });
             }
-            
-            $(".theme-picker").change(function () {
-                changeTheme(0);
-            });
 
             window.onresize = function () {
                 if (editor) {
