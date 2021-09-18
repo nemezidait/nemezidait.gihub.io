@@ -235,8 +235,14 @@
         var editor = null, diffEditor = null;
 
         $(document).ready(function () {
+            
+            var request = new XMLHttpRequest();
+            request.open("GET", "config.json", false);
+            request.send(null);
+            const settings = JSON.parse(request.responseText);
+            
             const languageMode = 'cpp';
-            const defaultCodeURL = 'https://microsoft.github.io/monaco-editor/index/samples/sample.cpp.txt';
+            const defaultCodeURL = settings.codePath + '/' + settings.codeTemplates[0];
 
             let savedCode = localStorage.getItem('cpp_main_lesson1_code');
             if (savedCode) {
