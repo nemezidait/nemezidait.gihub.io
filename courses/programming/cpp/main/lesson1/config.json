@@ -1,3 +1,5 @@
 {
-  "code_templates": ["main.cpp"]
+  "lang": "cpp",
+  "codePath": "code",
+  "codeTemplates": ["main.cpp"]
 }
