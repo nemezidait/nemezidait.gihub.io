@@ -130,14 +130,23 @@
                   <p>Velit natus alias eligendi architecto rem, itaque distinctio? Excepturi obcaecati fuga ratione. Dolore in ipsam rem ullam nemo error aperiam dolores eius, doloremque blanditiis placeat fugiat libero id atque, recusandae, voluptate laboriosam, distinctio omnis ab. Eius obcaecati, laudantium ex voluptatum voluptas, cum vitae molestiae quam est omnis nulla, quis velit? Esse natus tempore molestias deserunt, tempora illum labore, fuga animi totam dolore doloribus doloremque laudantium velit distinctio, non cumque dolorem delectus quia quibusdam? Amet, consectetur. Reprehenderit unde, eveniet temporibus, quae possimus magni. Dolore quo eveniet, distinctio dicta quisquam? Aliquid libero dolore provident, beatae odit facilis quasi dolorum sit ad minus!</p>
                   <p>Tenetur, soluta natus porro, cumque vitae, iste accusamus beatae repudiandae quidem magnam sunt, nihil reprehenderit facere eveniet non sint aliquid. Ipsam totam nostrum, modi veritatis quidem maiores dolor minima incidunt non ratione qui quas, quasi aut sit obcaecati iure. Corporis, rem? Reprehenderit sequi, tenetur, libero nobis beatae ut doloremque obcaecati ipsa? Itaque numquam ratione et veniam porro magnam expedita ad laboriosam dolorum debitis omnis mollitia id eum minus necessitatibus ipsam consequuntur sed tempora assumenda, repudiandae culpa atque? Ad ut porro praesentium, earum voluptatum maxime, deserunt, omnis dolorem veniam cumque et officia veritatis, nam perferendis ex facilis sit sapiente at accusamus?</p>
                   <p><a href="#" class="btn btn-primary">Enroll with this course now</a> <span class="enrolled-count">2,928 students enrolled</span></p>
-                  <div class="editor-frame">
-                    <div class="loading editor" style="display: none;">
-                      <div class="progress progress-striped active">
-                        <div class="bar"></div>
-                      </div>
-                    </div>
-                    <div id="editor"></div>
-                  </div>
+		    <div class="row">
+			<div class="span4">
+			    <label class="control-label">Theme</label>
+			    <select class="theme-picker">
+				<option>Visual Studio Dark</option>
+				<option>Visual Studio</option>
+			    </select>
+			</div>
+		    </div>
+		    <div class="editor-frame">
+			<div class="loading editor" style="display: none;">
+			    <div class="progress progress-striped active">
+				<div class="bar"></div>
+			    </div>
+			</div>
+			<div style="width:100vw; height:600px" id="editor"></div>
+		    </div>
                 </div>
               </div>
             </div>
@@ -222,180 +231,116 @@
     <script src="/js/scripts.min.js"></script>
     <script src="/js/main.min.js"></script>
     <script src="/js/custom.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/bootstrap.min.js" integrity="sha256-u+l2mGjpmGK/mFgUncmMcFKdMijvV+J3odlDJZSNUu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js" integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/bootstrap.min.js" integrity="sha256-u+l2mGjpmGK/mFgUncmMcFKdMijvV+J3odlDJZSNUu8=" crossorigin="anonymous"></script>
 
-	<script>var require = { paths: { 'vs': 'https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs' } };</script>
-	<script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/loader.js"></script>
-	<script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
-	<script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
-    	<script>/// <reference path="../../release/monaco.d.ts" />
+    <script>var require = { paths: { 'vs': 'https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs' } };</script>
+    <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+    <script>
+        "use strict";
 
-"use strict";
+        var editor = null, diffEditor = null;
 
-var editor = null, diffEditor = null;
+        $(document).ready(function () {
+            changeTheme(0);
 
-$(document).ready(function() {
-	require(['vs/editor/editor.main'], function () {
-		var MODES = (function() {
-			var modesIds = monaco.languages.getLanguages().map(function(lang) { return lang.id; });
-			modesIds.sort();
+            const languageMode = 'cpp';
+            const defaultCodeURL = 'https://microsoft.github.io/monaco-editor/index/samples/sample.cpp.txt';
 
-			return modesIds.map(function(modeId) {
-				return {
-					modeId: modeId,
-					sampleURL: 'https://microsoft.github.io/index/samples/sample.' + modeId + '.txt'
-				};
-			});
-		})();
+            let savedCode = localStorage.getItem('cpp_main_lesson1_code');
+            if (savedCode) {
+                // saved code from db
+                $('.loading.editor').show();
+                loadSample(languageMode, savedCode);
+                $('.loading.editor').fadeOut({ duration: 300 });
+            }
+            else {
+                // defaul sample
+                $('.loading.editor').show();
+                xhr(defaultCodeURL, function (err, data) {
+                    if (err) {
+                        if (editor) {
+                            if (editor.getModel()) {
+                                editor.getModel().dispose();
+                            }
+                            editor.dispose();
+                            editor = null;
+                        }
+                        $('.loading.editor').fadeOut({ duration: 200 });
+                        $('#editor').empty();
+                        $('#editor').append('<p class="alert alert-error">Failed to load ' + languageCode + ' sample</p>');
+                        return;
+                    }
 
-		var startModeIndex = 0;
-		for (var i = 0; i < MODES.length; i++) {
-			var o = document.createElement('option');
-			o.textContent = MODES[i].modeId;
-			if (MODES[i].modeId === 'typescript') {
-				startModeIndex = i;
-			}
-			$(".language-picker").append(o);
-		}
-		$(".language-picker")[0].selectedIndex = startModeIndex;
-		loadSample(MODES[startModeIndex]);
-		$(".language-picker").change(function() {
-			loadSample(MODES[this.selectedIndex]);
-		});
+                    loadSample(languageMode, data);
 
-		$(".theme-picker").change(function() {
-			changeTheme(this.selectedIndex);
-		});
+                    $('.loading.editor').fadeOut({ duration: 300 });
+                });
+            }
+            
+            $(".theme-picker").change(function () {
+                changeTheme(this.selectedIndex);
+            });
 
-		loadDiffSample();
+            window.onresize = function () {
+                if (editor) {
+                    editor.layout();
+                }
+                if (diffEditor) {
+                    diffEditor.layout();
+                }
+            };
+        });
 
-		$('#inline-diff-checkbox').change(function () {
-			diffEditor.updateOptions({
-				renderSideBySide: !$(this).is(':checked')
-			});
-		});
-	});
+        var preloaded = {};
+        (function () {
+            var elements = Array.prototype.slice.call(document.querySelectorAll('pre[data-preload]'), 0);
 
-	window.onresize = function () {
-		if (editor) {
-			editor.layout();
-		}
-		if (diffEditor) {
-			diffEditor.layout();
-		}
-	};
-});
+            elements.forEach(function (el) {
+                var path = el.getAttribute('data-preload');
+                preloaded[path] = el.innerText || el.textContent;
+                el.parentNode.removeChild(el);
+            });
+        })();
 
-var preloaded = {};
-(function() {
-	var elements = Array.prototype.slice.call(document.querySelectorAll('pre[data-preload]'), 0);
+        function xhr(url, cb) {
+            if (preloaded[url]) {
+                return cb(null, preloaded[url]);
+            }
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'text',
+                error: function () {
+                    cb(this, null);
+                }
+            }).done(function (data) {
+                cb(null, data);
+            });
+        }
 
-	elements.forEach(function(el) {
-		var path = el.getAttribute('data-preload');
-		preloaded[path] = el.innerText || el.textContent;
-		el.parentNode.removeChild(el);
-	});
-})();
+        function loadSample(languageCode, code) {
+            if (!editor) {
+                $('#editor').empty();
+                editor = monaco.editor.create(document.getElementById('editor'), {
+                    model: null,
+                });
+            }
 
-function xhr(url, cb) {
-	if (preloaded[url]) {
-		return cb(null, preloaded[url]);
-	}
-	$.ajax({
-		type: 'GET',
-		url: url,
-		dataType: 'text',
-		error: function () {
-			cb(this, null);
-		}
-	}).done(function(data) {
-		cb(null, data);
-	});
-}
+            var oldModel = editor.getModel();
+            var newModel = monaco.editor.createModel(code, languageCode);
+            editor.setModel(newModel);
+            if (oldModel) {
+                oldModel.dispose();
+            }
+        }
 
-function loadSample(mode) {
-	$('.loading.editor').show();
-	xhr(mode.sampleURL, function(err, data) {
-		if (err) {
-			if (editor) {
-				if (editor.getModel()) {
-					editor.getModel().dispose();
-				}
-				editor.dispose();
-				editor = null;
-			}
-			$('.loading.editor').fadeOut({ duration: 200 });
-			$('#editor').empty();
-			$('#editor').append('<p class="alert alert-error">Failed to load ' + mode.modeId + ' sample</p>');
-			return;
-		}
-
-		if (!editor) {
-			$('#editor').empty();
-			editor = monaco.editor.create(document.getElementById('editor'), {
-				model: null,
-			});
-		}
-
-		var oldModel = editor.getModel();
-		var newModel = monaco.editor.createModel(data, mode.modeId);
-		editor.setModel(newModel);
-		if (oldModel) {
-			oldModel.dispose();
-		}
-		$('.loading.editor').fadeOut({ duration: 300 });
-	})
-}
-
-function loadDiffSample() {
-
-	var onError = function() {
-		$('.loading.diff-editor').fadeOut({ duration: 200 });
-		$('#diff-editor').append('<p class="alert alert-error">Failed to load diff editor sample</p>');
-	};
-
-	$('.loading.diff-editor').show();
-
-	var lhsData = null, rhsData = null, jsMode = null;
-
-	xhr('index/samples/diff.lhs.txt', function(err, data) {
-		if (err) {
-			return onError();
-		}
-		lhsData = data;
-		onProgress();
-	})
-	xhr('index/samples/diff.rhs.txt', function(err, data) {
-		if (err) {
-			return onError();
-		}
-		rhsData = data;
-		onProgress();
-	})
-
-	function onProgress() {
-		if (lhsData && rhsData) {
-			diffEditor = monaco.editor.createDiffEditor(document.getElementById('diff-editor'), {
-				enableSplitViewResizing: false
-			});
-
-			var lhsModel = monaco.editor.createModel(lhsData, 'text/javascript');
-			var rhsModel = monaco.editor.createModel(rhsData, 'text/javascript');
-
-			diffEditor.setModel({
-				original: lhsModel,
-				modified: rhsModel
-			});
-
-			$('.loading.diff-editor').fadeOut({ duration: 300 });
-		}
-	}
-}
-
-function changeTheme(theme) {
-	var newTheme = (theme === 1 ? 'vs-dark' : ( theme === 0 ? 'vs' : 'hc-black' ));
-	monaco.editor.setTheme(newTheme);
-}
-</script>
+        function changeTheme(theme) {
+            var newTheme = (theme === 0 ? 'vs-dark' : 'vs');
+            monaco.editor.setTheme(newTheme);
+        }
+    </script>
   </body>
 </html>
