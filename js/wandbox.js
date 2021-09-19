@@ -1,6 +1,6 @@
 /* Wandbox commenucation see: https://github.com/melpon/wandbox/blob/master/kennel2/API.rst*/
 
-export async function compileGccCpp(main, codes, fileNames, stdin){
+async function compileGccCpp(main, codes, fileNames, stdin){
   const data = {
                 code: code,
                 codes: codes,
