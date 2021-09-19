@@ -220,6 +220,7 @@ function setStdout(value){
 
 function insertText(){
     $("#text-content").load("text.html");
+    $("#task-content").load("task.html");
 }
 
 function clearSolution(){
