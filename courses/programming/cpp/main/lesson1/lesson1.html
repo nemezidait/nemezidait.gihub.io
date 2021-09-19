@@ -134,8 +134,10 @@
                         <div class="col-md-12 probootstrap-animate" id="probootstrap-content">
                             <h2>Практика</h2>
                             <div id="task-content"> </div>
-                            <p>Ввод <pre>1 2 3</pre></p> 
-                            <p>Вывод <pre>6</pre></p> 
+                            <p style="margin-bottom: 5px !important;">Ввод</p>
+                            <pre>1 2 3</pre>
+                            <p style="margin-bottom: 5px !important;">Вывод</p>
+                            <pre>6</pre>
                         </div>
                         <div id="codeFiles">
                             
@@ -151,7 +153,7 @@
                         </div>
                         <p>
                             <input type="button" class="btn btn-success" value="Отправить" />
-                            <input type="button" onclick="compile()" class="btn btn-primary" value="Компилировать" />
+                            <input type="button" onclick="setStdout('Компилируем...');compile();" class="btn btn-primary" value="Компилировать" />
                             <input type="button" onclick="clearSolution()" class="btn btn-danger" value="Очистить решение" />
                         </p>
                         <div class="input-group" style="width:100%;">
