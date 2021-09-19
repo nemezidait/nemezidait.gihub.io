@@ -77,7 +77,7 @@ function loadStoredCode(settings, fileName) {
     }
     else{
         code = savedCode.additionalFiles.filter(x => x.name === fileName).code;
-        console.log(code);
+        console.log(savedCode.additionalFiles.filter(x => x.name === fileName));
     }
     
     $('.loading.editor').show();
