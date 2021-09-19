@@ -237,7 +237,7 @@ function compile(){
     
     const stdin = getStdin();
     compileGccCpp(savedCode.mainFile.code,
-                  savedCode.additionalFiles.map(c => new { file: c.name, code: c.code }),
+                  savedCode.additionalFiles.map(c => ({ file: c.name, code: c.code })),
                   savedCode.additionalFiles.map(c => c.name).join(' '),
                   stdin)
     .then(result => {
