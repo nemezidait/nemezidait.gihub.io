@@ -241,14 +241,14 @@ function compile(){
                   savedCode.additionalFiles.map(c => c.name).join(' '),
                   stdin)
     .then(result => {
-        let stdoutValue = 'status: ' + result.status + '\n\n';
+        let stdoutValue = 'status: ' + result.status + '\n';
         if (result.compiler_error)
         {
             stdoutValue += result.status === 0 ? 'Warnings:\n' : 'Errors:\n';
             stdoutValue += result.compiler_error
         }
         
-        stdoutValue += '\n\nResult:\n' + result.program_output;
+        stdoutValue += '\nResult:\n' + result.program_output;
         setStdout(stdoutValue);
     });
 }
