@@ -2,7 +2,7 @@
   "themes": [
     {
       "themeId" : "basics_theme",
-      "name": "Вводные занятия",
+      "name": "C++ Вводные занятия",
       "lessons": [
         {
             "lessonId": "cpp_lesson1",
