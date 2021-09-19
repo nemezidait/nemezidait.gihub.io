@@ -210,8 +210,34 @@ function xhr(url, cb) {
     });
 }
 
+function getStdin(){
+    return document.getElementById('stdin').value;
+}
+
+function setStdout(value){
+    document.getElementById('stdout').value = value;
+}
+
 function compile(){
-       
+    const settings = getLessonSettings();
+    const storageName = getStorageName(settings);
+    const savedCode = JSON.parse(localStorage.getItem(storageName));
+    const stdin = getStdin();
+    compileGccCpp(savedCode.mainFile.code,
+                  savedCode.additionalFiles.map(c => c.code),
+                  savedCode.additionalFiles.map(c => c.name).join(' '),
+                  stdin)
+    .then(result => {
+        let stdoutValue = 'status: ' + result.status + '\n\n';
+        if (result.compiler_error)
+        {
+            stdoutValue += result.status === 0 ? 'Warnings:\n' : 'Errors:\n';
+            stdoutValue += result.compiler_error
+        }
+        
+        stdoutValue += '\n\nResult:\n' + result.program_output;
+        setStdout(stdoutValue);
+    });
 }
 
 $(document).ready(function () {
