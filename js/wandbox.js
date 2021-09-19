@@ -21,7 +21,7 @@ async function postData(data = {}) {
             'Content-Type': 'application/json'
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: data // body data type must match "Content-Type" header
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
     return await response.json(); // parses JSON response into native JavaScript objects
 }
