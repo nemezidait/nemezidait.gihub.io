@@ -1,8 +1,8 @@
 /* Wandbox commenucation see: https://github.com/melpon/wandbox/blob/master/kennel2/API.rst*/
 
-async function compileGccCpp(main, codes, fileNames, stdin){
+async function compileGccCpp(mainCode, codes, fileNames, stdin){
   const data = {
-                code: code,
+                code: mainCode,
                 codes: codes,
                 options: "warning,gnu++1y",
                 stdin: stdin,
