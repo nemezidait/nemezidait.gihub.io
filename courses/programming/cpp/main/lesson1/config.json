@@ -6,6 +6,12 @@
     "textFile": "task.html",
     "sampleStdin": "",
     "sampleStdout": "1 2 3 4 5 6",
+    "testCases": [
+      {
+        "stdin": "1 2 3",
+        "stdout": "6"
+      }
+    ],
     "validationRules": [
       {
         "expression" : "",
