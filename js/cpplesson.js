@@ -38,7 +38,7 @@ function initStorageWithTemplateCode(settings, callback)
                 (fileName, code) => codeTemplates.additionalFiles.push({name: fileName, code: code }),
                 () => {
                      const storageName = getStorageName(settings);
-                     localStorage.setItem(storageName, codeTemplates);
+                     localStorage.setItem(storageName, JSON.stringify(codeTemplates));
                 },
                 callback   
             );
@@ -86,10 +86,11 @@ $(document).ready(function () {
     const languageMode = 'cpp';
         
     const storageName = getStorageName(settings);
-    const savedCode = localStorage.getItem(storageName);
+    const savedCodeJson = localStorage.getItem(storageName);
         
     if (savedCode) {
         // saved code from db
+        const savedCode = JSON.parse(savedCodeJson);
         $('.loading.editor').show();
         loadSample(languageMode, savedCode.mainFile.code);
         $('.loading.editor').fadeOut({ duration: 300 });
@@ -99,7 +100,7 @@ $(document).ready(function () {
         initStorageWithTemplateCode(
             settings,
             () => {
-                const savedCode = localStorage.getItem(storageName);
+                const savedCode = JSON.parse(localStorage.getItem(storageName));
                 $('.loading.editor').show();
                 console.log(savedCode);
                 loadSample(languageMode, savedCode.mainFile.code);
