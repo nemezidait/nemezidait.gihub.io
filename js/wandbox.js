@@ -1,6 +1,6 @@
 /* Wandbox commenucation see: https://github.com/melpon/wandbox/blob/master/kennel2/API.rst*/
 
-async function compileGccCpp(code, stdin){
+export async function compileGccCpp(code, stdin){
   const data = {
                 code: code,
                 options: "warning,gnu++1y",
