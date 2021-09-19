@@ -2,9 +2,7 @@
   "lessonName": "Вводное занятие",
   "themeId": "basics_theme",
   "lessonId": "cpp_lesson1",
-  "lessonTextFile": "text.html",
   "task": {
-    "textFile": "task.html",
     "sampleStdin": "",
     "sampleStdout": "1 2 3 4 5 6",
     "testCases": [
