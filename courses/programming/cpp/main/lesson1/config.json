@@ -1,5 +1,18 @@
 {
-  "lang": "cpp",
+  "lessonName": "Вводное занятие",
+  "lessonTextFile": "text.html",
+  "task": {
+    "textFile": "task.html",
+    "sampleStdin": "",
+    "sampleStdout": "1 2 3 4 5 6",
+    "validationRules": [
+      {
+        "expression" : "",
+        "errorMessage" : "",
+      }
+    ]
+  },
   "codePath": "code",
+  "mainCodeTemplate": "main.cpp",
   "codeTemplates": ["main.cpp"]
 }
