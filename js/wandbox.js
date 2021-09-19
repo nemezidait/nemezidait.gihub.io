@@ -1,12 +1,13 @@
 /* Wandbox commenucation see: https://github.com/melpon/wandbox/blob/master/kennel2/API.rst*/
 
-export async function compileGccCpp(code, stdin){
+export async function compileGccCpp(main, codes, fileNames, stdin){
   const data = {
                 code: code,
+                codes: codes,
                 options: "warning,gnu++1y",
                 stdin: stdin,
                 compiler: "gcc-head",
-                compiler_option_raw: "-Dx=hogefuga\n-O3",
+                compiler_option_raw: "-Dx=hogefuga\n-O3 " + fileNames,
             };
   
   return postData(data);
