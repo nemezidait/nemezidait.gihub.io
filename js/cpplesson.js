@@ -73,11 +73,11 @@ function loadStoredCode(settings, fileName) {
     
     let code = '';
     if (savedCode.mainFile.name === fileName) {
-        code = savedCode.mainFile.code = currentCode;
+        code = savedCode.mainFile.code;
     }
     else{
         code = savedCode.additionalFiles.filter(x => x.name === fileName).code;
-        console.log(fileName);
+        console.log(code);
     }
     
     $('.loading.editor').show();
