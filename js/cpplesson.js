@@ -53,7 +53,7 @@ function switchCodeFile(fileName){
 }
 
 function updateStoredCode(settings, openedFileName){
-    const currentCode = editor.getValue();
+    let currentCode = editor.getValue();
     const storageName = getStorageName(settings);
     const savedCode = JSON.parse(localStorage.getItem(storageName));
     
@@ -77,6 +77,7 @@ function loadStoredCode(settings, fileName) {
     }
     else{
         code = savedCode.additionalFiles.filter(x => x.name === fileName).code;
+        console.log(fileName);
     }
     
     $('.loading.editor').show();
