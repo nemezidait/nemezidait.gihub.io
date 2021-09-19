@@ -1,5 +1,6 @@
 {
   "lessonName": "Вводное занятие",
+  "lessonId": "Вводное занятие",
   "lessonTextFile": "text.html",
   "task": {
     "textFile": "task.html",
