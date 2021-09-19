@@ -3,13 +3,56 @@
 var editor = null, diffEditor = null;
 
 function initializeFileHeaders(mainFile, additionalFiles){
-    let htmls = '<input type="button" id="' + getFileButtonId(mainFile) + '" class="btn btn-info" value="'+ mainFile +'" />';
+    let htmls = '<input type="button" onclick="switchCodeFile(\'' + mainFile + '\')" id="' + getFileButtonId(mainFile) + '" class="btn btn-info" value="'+ mainFile +'" />';
     additionalFiles.forEach((name, i) =>{
-        htmls += '<input type="button" id="' + getFileButtonId(name) + '" class="btn btn-light" value="'+ name +'" />'
+        htmls += '<input type="button" onclick="switchCodeFile(\'' + name + '\')" id="' + getFileButtonId(name) + '" class="btn btn-light" value="'+ name +'" />'
     });
     
     let codeFiles = document.getElementById('codeFiles');
     codeFiles.innerHTML = htmls;
+    
+    updateOpenedFileValue(mainFile);
+}
+
+function updateOpenedFileValue(fileName){
+    let openedFileName = document.getElementById('openedFileName');
+    openedFileName.value = fileName;
+}
+
+function getOpenedFileName(){
+    return document.getElementById('openedFileName').value;
+}
+
+function switchCodeFile(fileName){
+    if(!editor){
+        return;
+    }
+    
+    const openedFileName = getOpenedFileName();
+    updateStoredCode(openedFileName);
+    
+    const openedFileNameId = getFileButtonId(openedFileName);
+    let openedCodeFile = document.getElementById(openedFileNameId);
+    openedCodeFile.classList.remove("btn-info");
+    openedCodeFile.classList.add("btn-light"); 
+    
+    const newFileId = getFileButtonId(fileName);
+    let newCodeFile = document.getElementById(newFileId);
+    newCodeFile.classList.remove("btn-light");
+    newCodeFile.classList.add("btn-info"); 
+            
+    updateOpenedFileValue(fileName);
+}
+
+function updateStoredCode(openedFileName){
+    const currentCode = editor.getValue();
+    const settings = getLessonSettings();
+    const storageName = getStorageName(settings);
+    const savedCode = JSON.parse(localStorage.getItem(storageName));
+    
+    savedCode.additionalFiles.filter(x => x.name === openedFileName).code = currentCode;
+    
+    localStorage.setItem(storageName, JSON.stringify(savedCode));
 }
 
 function getLessonSettings(){
