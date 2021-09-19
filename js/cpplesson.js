@@ -88,7 +88,7 @@ $(document).ready(function () {
     const storageName = getStorageName(settings);
     const savedCodeJson = localStorage.getItem(storageName);
         
-    if (savedCode) {
+    if (savedCodeJson) {
         // saved code from db
         const savedCode = JSON.parse(savedCodeJson);
         $('.loading.editor').show();
