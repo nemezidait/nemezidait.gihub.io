@@ -241,7 +241,7 @@ function compile(){
     const savedCode = JSON.parse(localStorage.getItem(storageName));
     
     const stdin = getStdin();
-    setStdout('Компилируем...');
+    
     compileGccCpp(savedCode.mainFile.code,
                   savedCode.additionalFiles.map(c => ({ file: c.name, code: c.code })),
                   savedCode.additionalFiles.map(c => c.name).join(' '),
