@@ -1,6 +1,7 @@
 "use strict";
 
 var editor = null, diffEditor = null;
+const languageMode = 'cpp';
 
 function initializeFileHeaders(mainFile, additionalFiles){
     let htmls = '<input type="button" onclick="switchCodeFile(\'' + mainFile + '\')" id="' + getFileButtonId(mainFile) + '" class="btn btn-info" value="'+ mainFile +'" />';
@@ -29,7 +30,14 @@ function switchCodeFile(fileName){
     }
     
     const openedFileName = getOpenedFileName();
-    updateStoredCode(openedFileName);
+    
+    if (openedFileName === fileName){
+        return;
+    }
+    
+    const settings = getLessonSettings();
+    updateStoredCode(settings, openedFileName);
+    loadStoredCode(settings, fileName);
     
     const openedFileNameId = getFileButtonId(openedFileName);
     let openedCodeFile = document.getElementById(openedFileNameId);
@@ -44,15 +52,36 @@ function switchCodeFile(fileName){
     updateOpenedFileValue(fileName);
 }
 
-function updateStoredCode(openedFileName){
+function updateStoredCode(settings, openedFileName){
     const currentCode = editor.getValue();
-    const settings = getLessonSettings();
     const storageName = getStorageName(settings);
     const savedCode = JSON.parse(localStorage.getItem(storageName));
     
-    savedCode.additionalFiles.filter(x => x.name === openedFileName).code = currentCode;
+    if (savedCode.mainFile.name === openedFileName) {
+        savedCode.mainFile.code = currentCode;
+    }
+    else{
+        savedCode.additionalFiles.filter(x => x.name === openedFileName).code = currentCode;
+    }
     
     localStorage.setItem(storageName, JSON.stringify(savedCode));
+}
+
+function loadStoredCode(settings, fileName) {
+    const storageName = getStorageName(settings);
+    const savedCode = JSON.parse(localStorage.getItem(storageName));
+    
+    let code = '';
+    if (savedCode.mainFile.name === fileName) {
+        code = savedCode.mainFile.code = currentCode;
+    }
+    else{
+        code = savedCode.additionalFiles.filter(x => x.name === fileName).code;
+    }
+    
+    $('.loading.editor').show();
+    loadSample(languageMode, code);
+    $('.loading.editor').fadeOut({ duration: 300 });
 }
 
 function getLessonSettings(){
@@ -191,8 +220,6 @@ $(document).ready(function () {
     const storageName = getStorageName(settings);
     const savedCodeJson = localStorage.getItem(storageName);
     
-    const languageMode = 'cpp';
-    
     if (savedCodeJson) {
         // saved code from db
         const savedCode = JSON.parse(savedCodeJson);
@@ -207,7 +234,6 @@ $(document).ready(function () {
             () => {
                 const savedCode = JSON.parse(localStorage.getItem(storageName));
                 $('.loading.editor').show();
-                console.log(savedCode);
                 loadSample(languageMode, savedCode.mainFile.code);
                 $('.loading.editor').fadeOut({ duration: 300 });
             });
