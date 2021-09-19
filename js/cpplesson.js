@@ -218,10 +218,23 @@ function setStdout(value){
     document.getElementById('stdout').value = value;
 }
 
+function clearSolution(){
+    const settings = getLessonSettings();
+    initStorageWithTemplateCode(
+            settings,
+            () => {
+                const openedFileName = getOpenedFileName();
+                loadStoredCode(settings, openedFileName);
+            });
+}
+
 function compile(){
     const settings = getLessonSettings();
+    const openedFileName = getOpenedFileName();
+    updateStoredCode(settings, openedFileName);
     const storageName = getStorageName(settings);
     const savedCode = JSON.parse(localStorage.getItem(storageName));
+    
     const stdin = getStdin();
     compileGccCpp(savedCode.mainFile.code,
                   savedCode.additionalFiles.map(c => c.code),
@@ -250,6 +263,7 @@ $(document).ready(function () {
         const savedCode = JSON.parse(savedCodeJson);
         $('.loading.editor').show();
         loadSample(languageMode, savedCode.mainFile.code);
+        updateOpenedFileValue(savedCode.mainFile.name);
         $('.loading.editor').fadeOut({ duration: 300 });
     }
     else {
@@ -260,9 +274,11 @@ $(document).ready(function () {
                 const savedCode = JSON.parse(localStorage.getItem(storageName));
                 $('.loading.editor').show();
                 loadSample(languageMode, savedCode.mainFile.code);
+                updateOpenedFileValue(savedCode.mainFile.name);
                 $('.loading.editor').fadeOut({ duration: 300 });
             });
     }
+    
     
     initializeFileHeaders(settings.mainCodeTemplate, settings.codeTemplates);
 
