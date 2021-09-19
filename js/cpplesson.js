@@ -1,5 +1,3 @@
-import { compileGccCpp } from '/wandbox.js';        
-
 "use strict";
 
 var editor = null, diffEditor = null;
