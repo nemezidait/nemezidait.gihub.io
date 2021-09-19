@@ -6,7 +6,6 @@ function getLessonSettings(){
     let request = new XMLHttpRequest();
     request.open("GET", "config.json", false);
     request.send(null);
-    console.log(request.responseText);
     return JSON.parse(request.responseText);
 }
 
@@ -102,6 +101,7 @@ $(document).ready(function () {
             () => {
                 const savedCode = localStorage.getItem(storageName);
                 $('.loading.editor').show();
+                console.log(savedCode);
                 loadSample(languageMode, savedCode.mainFile.code);
                 $('.loading.editor').fadeOut({ duration: 300 });
             });
