@@ -248,8 +248,11 @@ function compile(){
             stdoutValue += result.status === 0 ? 'Warnings:\n' : 'Errors:\n';
             stdoutValue += result.compiler_error
         }
+        if (result.status === 0)
+        {
+            stdoutValue += '\nResult:\n' + result.program_output;
+        }
         
-        stdoutValue += '\nResult:\n' + result.program_output;
         setStdout(stdoutValue);
     });
 }
