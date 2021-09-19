@@ -1,6 +1,6 @@
 {
   "lessonName": "Вводное занятие",
-  "lessonId": "Вводное занятие",
+  "lessonId": "cpp_lesson1",
   "lessonTextFile": "text.html",
   "task": {
     "textFile": "task.html",
