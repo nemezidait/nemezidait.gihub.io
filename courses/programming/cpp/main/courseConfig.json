@@ -1,8 +1,14 @@
 {
-  "menu": [
+  "themes": [
     {
-      "Name": "Вводное занятие",
-      "Location": "lesson1/lesson1.html"
+      "themeId" : "basics_theme",
+      "name": "Вводные занятия",
+      "lessons": [
+        {
+            "lessonId": "cpp_lesson1",
+            "lessonLocation": "lesson1/lesson1.html"
+        }
+      ]
     }
   ]
 }
