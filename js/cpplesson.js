@@ -3,7 +3,7 @@
 var editor = null, diffEditor = null;
 
 function initializeFileHeaders(mainFile, additionalFiles){
-    let htmls = '<input type="button" id="' + getFileButtonId(mainFile) + '" class="btn btn-dark" value="'+ mainFile +'" />';
+    let htmls = '<input type="button" id="' + getFileButtonId(mainFile) + '" class="btn btn-info" value="'+ mainFile +'" />';
     additionalFiles.forEach((name, i) =>{
         htmls += '<input type="button" id="' + getFileButtonId(name) + '" class="btn btn-light" value="'+ name +'" />'
     });
