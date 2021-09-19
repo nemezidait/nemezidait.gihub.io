@@ -218,6 +218,10 @@ function setStdout(value){
     document.getElementById('stdout').value = value;
 }
 
+function insertText(){
+    $("#text-content").load("text.html");
+}
+
 function clearSolution(){
     const settings = getLessonSettings();
     initStorageWithTemplateCode(
@@ -258,6 +262,8 @@ function compile(){
 }
 
 $(document).ready(function () {
+    insertText();
+    
     const settings = getLessonSettings();
     const storageName = getStorageName(settings);
     const savedCodeJson = localStorage.getItem(storageName);
