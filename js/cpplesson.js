@@ -1,7 +1,6 @@
 "use strict";
 
 var editor = null, diffEditor = null;
-const languageMode = 'cpp';
 
 function initializeFileHeaders(mainFile, additionalFiles){
     let htmls = '<input type="button" onclick="switchCodeFile(\'' + mainFile + '\')" id="' + getFileButtonId(mainFile) + '" class="btn btn-info" value="'+ mainFile +'" />';
@@ -80,7 +79,7 @@ function loadStoredCode(settings, fileName) {
     }
     
     $('.loading.editor').show();
-    loadSample(languageMode, code);
+    editor.getModel().setValue(code);
     $('.loading.editor').fadeOut({ duration: 300 });
 }
 
@@ -219,7 +218,7 @@ $(document).ready(function () {
     const settings = getLessonSettings();
     const storageName = getStorageName(settings);
     const savedCodeJson = localStorage.getItem(storageName);
-    
+    const languageMode = 'cpp';
     if (savedCodeJson) {
         // saved code from db
         const savedCode = JSON.parse(savedCodeJson);
