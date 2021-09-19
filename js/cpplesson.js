@@ -250,10 +250,10 @@ function compile(){
         let stdoutValue = 'status: ' + result.status + '\n';
         if (result.compiler_error)
         {
-            stdoutValue += result.status === 'o' ? 'Warnings:\n' : 'Errors:\n';
+            stdoutValue += result.status === '0' ? 'Warnings:\n' : 'Errors:\n';
             stdoutValue += result.compiler_error
         }
-        if (result.status === 'o')
+        if (result.status === '0')
         {
             stdoutValue += '\nResult:\n' + result.program_output;
         }
