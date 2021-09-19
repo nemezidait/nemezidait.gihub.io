@@ -262,10 +262,17 @@ function compile(){
     });
 }
 
+function fillSampleData(settings){
+    $('#sample-stdin').text(settings.task.sampleStdin);
+    $('#stdin').text(settings.task.sampleStdin);
+    $('#sample-stdout').text(settings.task.sampleStdout);
+}
+
 $(document).ready(function () {
     insertText();
-    
     const settings = getLessonSettings();
+    fillSampleData(settings);
+    
     const storageName = getStorageName(settings);
     const savedCodeJson = localStorage.getItem(storageName);
     const languageMode = 'cpp';
