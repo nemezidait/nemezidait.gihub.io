@@ -90,6 +90,13 @@ function getLessonSettings(){
     return JSON.parse(request.responseText);
 }
 
+function getCourceSettings(){
+    let request = new XMLHttpRequest();
+    request.open("GET", "../courseConfig.json", false);
+    request.send(null);
+    return JSON.parse(request.responseText);
+}
+
 function getFileButtonId(fileName){
  return fileName.replaceAll('.', '_');
 }
@@ -218,7 +225,13 @@ function setStdout(value){
     document.getElementById('stdout').value = value;
 }
 
-function insertText(){
+function insertText(lessonSettings){
+    const courseSettings = getCourceSettings();
+    const currentTheme = courseSettings.themes.find(x => x.themeId === lessonSettings.themeId);
+    document.title = 'C++ ' + currentTheme.name + ' ' + lessonSettings.lessonName;
+    $("#themeName").text(currentTheme.name);
+    $("#lessonName").text(lessonSettings.lessonName);
+    
     $("#text-content").load("text.html");
     $("#task-content").load("task.html");
 }
@@ -269,8 +282,8 @@ function fillSampleData(settings){
 }
 
 $(document).ready(function () {
-    insertText();
     const settings = getLessonSettings();
+    insertText(settings);
     fillSampleData(settings);
     
     const storageName = getStorageName(settings);
