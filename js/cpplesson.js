@@ -61,7 +61,7 @@ function updateStoredCode(settings, openedFileName){
         savedCode.mainFile.code = currentCode;
     }
     else{
-        savedCode.additionalFiles.filter(x => x.name === openedFileName).code = currentCode;
+        savedCode.additionalFiles.find(x => x.name === openedFileName).code = currentCode;
     }
     
     localStorage.setItem(storageName, JSON.stringify(savedCode));
@@ -76,8 +76,7 @@ function loadStoredCode(settings, fileName) {
         code = savedCode.mainFile.code;
     }
     else{
-        code = savedCode.additionalFiles.filter(x => x.name === fileName).code;
-        console.log(savedCode.additionalFiles.filter(x => x.name === fileName));
+        code = savedCode.additionalFiles.find(x => x.name === fileName).code;
     }
     
     $('.loading.editor').show();
