@@ -14,7 +14,7 @@
     "validationRules": [
       {
         "fileName": "main.cpp",
-        "expression" : "/cout\\s*<<\\s*\"Hello, world!\"\\s*<<\\s*endl;/g",
+        "expression" : "cout\\s*<<\\s*\"Hello, world!\"\\s*<<\\s*endl;",
         "errorMessage" : "В main.cpp должен быть вывод \"Hello, world!\""
       }
     ]
