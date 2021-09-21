@@ -13,8 +13,9 @@
     ],
     "validationRules": [
       {
-        "expression" : "",
-        "errorMessage" : ""
+        "fileName": "main.cpp",
+        "expression" : "/cout\s*<<\s*\\\"Hello, world!\\\"\s*<<\s*endl;/gm",
+        "errorMessage" : "В main.cpp должен быть вывод \"Hello, world!\""
       }
     ]
   },
