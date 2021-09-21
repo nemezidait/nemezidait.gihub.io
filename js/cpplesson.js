@@ -281,12 +281,11 @@ function runTest(){
     updateStoredCode(settings, openedFileName);
     const storageName = getStorageName(settings);
     const savedCode = JSON.parse(localStorage.getItem(storageName));
-    const testCases = settings.testCases;
     
-    if (!validateCode(dictionaryFromSavedCode(savedCode), settings.validationRules)){
+    if (!validateCode(dictionaryFromSavedCode(savedCode), settings.task.validationRules)){
         return;   
     }
-    checkTest(savedCode, testCases);
+    checkTest(savedCode, settings.task.testCases);
 }
 
 function dictionaryFromSavedCode(savedCode){
@@ -300,7 +299,7 @@ function dictionaryFromSavedCode(savedCode){
     return savedCodeDictionary;
 }
 
-function validateCode(savedCodeDictionary, validationRules, testIndex = 0){
+function validateCode(savedCodeDictionary, validationRules, testIndex = 0) {
     if(validationRules.length <= testIndex){
         return true;
     }
