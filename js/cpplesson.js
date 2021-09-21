@@ -340,10 +340,15 @@ function checkTest(savedCode, testCases, testIndex = 0)
     });
 }
 
+function showTestSpinner(){
+    $('#testSpinner').modal('show');
+}
+
 function showSuccessModal() {
     $('#resultModalTitle').html('Тесты пройдены!');
     const formattedBody = '<div class="alert alert-success" role="alert"><h6>Все тесты успешно пройдены!<h6></div>';
     $('#resultModalBody').html(formattedBody);
+    $('#testSpinner').modal('hide');
     $('#resultModal').modal('show');
 }
 
@@ -351,6 +356,7 @@ function showErrorModal(title, body) {
     $('#resultModalTitle').html(title);
     const formattedBody = '<div class="alert alert-danger" role="alert" style="white-space: pre-line">' + body + '</div>';
     $('#resultModalBody').html(formattedBody);
+    $('#testSpinner').modal('hide');
     $('#resultModal').modal('show');
 }
 
