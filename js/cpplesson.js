@@ -283,9 +283,6 @@ function runTest(){
     const savedCode = JSON.parse(localStorage.getItem(storageName));
     const testCases = settings.testCases;
     
-    
-    
-    
     if (!validateCode(dictionaryFromSavedCode(savedCode), settings.validationRules)){
         return;   
     }
