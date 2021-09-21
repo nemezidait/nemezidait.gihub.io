@@ -264,7 +264,7 @@ function compile(){
         if (result.compiler_error)
         {
             stdoutValue += result.status === '0' ? 'Warnings:\n' : 'Errors:\n';
-            stdoutValue += result.compiler_error
+            stdoutValue += result.compiler_error;
         }
         if (result.status === '0')
         {
@@ -273,6 +273,95 @@ function compile(){
         
         setStdout(stdoutValue);
     });
+}
+
+function runTest(){
+    const settings = getLessonSettings();
+    const openedFileName = getOpenedFileName();
+    updateStoredCode(settings, openedFileName);
+    const storageName = getStorageName(settings);
+    const savedCode = JSON.parse(localStorage.getItem(storageName));
+    const testCases = settings.testCases;
+    
+    
+    
+    
+    if (!validateCode(dictionaryFromSavedCode(savedCode), settings.validationRules)){
+        return;   
+    }
+    checkTest(savedCode, testCases);
+}
+
+function dictionaryFromSavedCode(savedCode){
+    let savedCodeDictionary = {};
+    savedCodeDictionary[savedCode.mainFile.name] = savedCode.mainFile.code;
+    
+    savedCode.additionalFiles.forEach((af, i) => {
+        savedCodeDictionary[af.name] = af.code;
+    });
+    
+    return savedCodeDictionary;
+}
+
+function validateCode(savedCodeDictionary, validationRules, testIndex = 0){
+    if(validationRules.length <= testIndex){
+        return true;
+    }
+    
+    const validationRule = validationRules[testIndex];
+    
+    const rule = new RegExp(validationRule.expression);
+    if (rule.test(savedCodeDictionary[validationRule.fileName])){
+        // go to the next rule
+        validateCode(savedCodeDictionary, validationRules, testIndex + 1);
+    }
+    else {
+        showErrorModal('Ошибка валидации!', 'Файл: ' + validationRule.fileName + '\n' + validationRule.errorMessage);
+        return false;
+    }
+}
+
+function checkTest(savedCode, testCases, testIndex = 0)
+{
+    if(testCases.length <= testIndex){
+        showSuccessModal();
+        return;
+    }
+    
+    const testCase = testCases[testIndex];
+    const stdin = testCase.stdin;
+    compileGccCpp(savedCode.mainFile.code,
+              savedCode.additionalFiles.map(c => ({ file: c.name, code: c.code })),
+              savedCode.additionalFiles.map(c => c.name).join(' '),
+              stdin)
+    .then(result => {
+        if (result.status !== '0') {
+            showErrorModal('Ошибка! Тест ' + (testIndex + 1), 'Ошибка выполнения:\n' + result.compiler_error);
+        }
+        else {
+            if (result.program_output == testCase.stdout) {
+                // go to the next test case
+                checkTest(savedCode, testCases, testIndex + 1);
+            }
+            else {
+                showErrorModal('Неверный вывод! Тест ' + (testIndex + 1), 'Ввод: ' + stdin + '\nОжидаемый вывод: ' + testCase.stdout + '\nВывод: ' + result.program_output);
+            }
+        }
+    });
+}
+
+function showSuccessModal() {
+    $('#resultModalTitle').html('Тесты пройдены!');
+    const formattedBody = '<div class="alert alert-success" role="alert"><h6>Все тесты успешно пройдены!<h6></div>';
+    $('#resultModalBody').html(formattedBody);
+    $('#resultModal').modal('show');
+}
+
+function showErrorModal(title, body) {
+    $('#resultModalTitle').html(title);
+    const formattedBody = '<div class="alert alert-danger" role="alert" style="white-space: pre-line">' + body + '</div>';
+    $('#resultModalBody').html(formattedBody);
+    $('#resultModal').modal('show');
 }
 
 function fillSampleData(settings){
