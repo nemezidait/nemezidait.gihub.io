@@ -306,8 +306,7 @@ function validateCode(savedCodeDictionary, validationRules, testIndex = 0) {
     
     const validationRule = validationRules[testIndex];
     
-    const rule = new RegExp(validationRule.expression);
-    if (rule.test(savedCodeDictionary[validationRule.fileName])){
+    if (validationRule.expression.test(savedCodeDictionary[validationRule.fileName])){
         // go to the next rule
         validateCode(savedCodeDictionary, validationRules, testIndex + 1);
     }
