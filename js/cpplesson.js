@@ -299,22 +299,16 @@ function dictionaryFromSavedCode(savedCode){
     return savedCodeDictionary;
 }
 
-function validateCode(savedCodeDictionary, validationRules, testIndex = 0) {
-    if(validationRules.length <= testIndex){
-        return true;
+function validateCode(savedCodeDictionary, validationRules) {
+    for(let i = 0; i < validationRules.length; ++i){
+        const validationRule = validationRules[i];
+        let rule = new RegExp(validationRule.expression, 'g');
+        if (!rule.test(savedCodeDictionary[validationRule.fileName])) {
+            showErrorModal('Ошибка валидации!', 'Файл: ' + validationRule.fileName + '\n' + validationRule.errorMessage);
+            return false;
+        }
     }
-    
-    const validationRule = validationRules[testIndex];
-    
-    let rule = new RegExp(validationRule.expression, 'g');
-    if (rule.test(savedCodeDictionary[validationRule.fileName])){
-        // go to the next rule
-        validateCode(savedCodeDictionary, validationRules, testIndex + 1);
-    }
-    else {
-        showErrorModal('Ошибка валидации!', 'Файл: ' + validationRule.fileName + '\n' + validationRule.errorMessage);
-        return false;
-    }
+    return true;
 }
 
 function checkTest(savedCode, testCases, testIndex = 0)
