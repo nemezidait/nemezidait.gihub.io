@@ -8,7 +8,7 @@
     "testCases": [
       {
         "stdin": "Loooooooooser!:)) Типа пасхалка",
-        "stdout": "Hello, world!\\n"
+        "stdout": "Hello, world!\n"
       }
     ],
     "validationRules": [
