@@ -366,7 +366,13 @@ function fillSampleData(settings){
     $('#sample-stdout').text(settings.task.sampleStdout);
 }
 
+function loadMainPageData(){
+    $("#header-top").load("/template/headerTop.html");
+    $("#nav").load("/template/nav.html");
+}
+
 $(document).ready(function () {
+    loadMainPageData();
     const settings = getLessonSettings();
     insertText(settings);
     fillSampleData(settings);
