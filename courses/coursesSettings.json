@@ -1,0 +1,10 @@
+{
+  "courses" : [
+    {
+      "name" : "Название курса",
+      "logo": "../courseLogo.png",
+      "description": "Описание курса",
+      "path": "/courses/programming/programming.html"
+    }
+  ]
+}
