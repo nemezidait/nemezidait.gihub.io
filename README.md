@@ -1,1 +1,1 @@
-# nemezidait.gihub.io
+# nemezidait.gihub.io - open source бесплатный интерактивный учебник.
