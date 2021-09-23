@@ -1,0 +1,22 @@
+{
+   "disciplines": [
+     {
+        "name": "Базовый курс",
+        "description": "Базовый курс по основам C++",
+        "logo": "../logo.png",
+        "path": "main/themes.html"
+     },
+     {
+        "name": "Продвинутый курс",
+        "description": "Продвинутый курс по основам C++",
+        "logo": "../logo.png",
+        "path": "professional/themes.html"
+     },
+     {
+        "name": "boost",
+        "description": "Курс по библиотеке boost",
+        "logo": "../logo.png",
+        "path": "professional/themes.html"
+     }
+   ]
+}
