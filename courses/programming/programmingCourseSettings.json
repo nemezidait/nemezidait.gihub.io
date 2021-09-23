@@ -1,0 +1,46 @@
+{
+  "disciplines": [
+    {
+        "name" : "Философия программирования",
+        "description": "Описание курса",
+        "logo": "../programmingCourse.png",
+        "path": "/courses/programming/philosophy.html"
+    },
+    {
+        "name" : "C++ SDE",
+        "description": "Описание курса",
+        "logo": "../programmingCourse.png",
+        "path": "/courses/programming/cpp/disciplines.html"
+    },
+    {
+        "name" : ".Net SDE",
+        "description": "Описание курса",
+        "logo": "../programmingCourse.png",
+        "path": "/courses/programming/dotnet/disciplines.html"
+    },
+    {
+        "name" : "Java SDE",
+        "description": "Описание курса",
+        "logo": "../programmingCourse.png",
+        "path": "/courses/programming/java/disciplines.html"
+    },
+    {
+        "name" : "Python SDE",
+        "description": "Описание курса",
+        "logo": "../programmingCourse.png",
+        "path": "/courses/programming/python/disciplines.html"
+    },
+    {
+        "name" : "JavaScript SDE",
+        "description": "Описание курса",
+        "logo": "../programmingCourse.png",
+        "path": "/courses/programming/js/disciplines.html"
+    },
+    {
+        "name" : "AI",
+        "description": "Описание курса",
+        "logo": "../programmingCourse.png",
+        "path": "/courses/programming/ai/disciplines.html"
+    }
+  ]
+}
