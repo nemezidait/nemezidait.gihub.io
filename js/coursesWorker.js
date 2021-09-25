@@ -6,7 +6,7 @@ function getCoursesSettings() {
 }
 
 function getCourse(courseObj) {
-  let result = '<div class="probootstrap-service-2 probootstrap-animate"><div class="image"><div class="image-bg"><img src="' + courseObj.logo +'"></div></div>';
+  let result = '<div class="probootstrap-service-2 probootstrap-animate fadeInUp probootstrap-animated"><div class="image"><div class="image-bg"><img src="' + courseObj.logo +'"></div></div>';
   result += '<div class="text"><span class="probootstrap-meta"><i class="icon-calendar2"></i> Создан в 2021 году</span>';
   result += '<h3>' + courseObj.name + '</h3><p>' + courseObj.description+ '</p>';
   result += '<p><a href="' + courseObj.path + '" class="btn btn-primary">Открыть</a> <span class="enrolled-count">2,928 человек уже учатся</span></p></div>';
@@ -22,14 +22,12 @@ function getCourseBlock(courseObj1, courseObj2 = null) {
 }
 
 function insertCourses(courses) {
-  
-  let i = 0;
   let length = courses.length;
   if (courses.length % 2 != 0) {
     length--;  
   }
   let html = '';
-  for(; i < length; i += 2){
+  for(let i = 0; i < length; i += 2){
     html += getCourseBlock(courses[i], courses[i + 1]);
   }
   
