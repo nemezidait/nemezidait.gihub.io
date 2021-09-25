@@ -1,10 +1,10 @@
 {
   "courses" : [
     {
-      "name" : "Название курса",
-      "logo": "../courseLogo.png",
-      "description": "Описание курса",
-      "path": "/courses/programming/programming.html"
+      "name" : "Программирование",
+      "logo": "/img/programming_course.jpg",
+      "description": "Курсы по программированию. Освой одну из самых востребованных профессий! У нас есть материалы как для совсем новичков, так и для матёрых профи.",
+      "path": "/courses/programming/courses.html"
     }
   ]
 }
