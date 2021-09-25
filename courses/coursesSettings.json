@@ -5,6 +5,30 @@
       "logo": "/img/programming_course.jpg",
       "description": "Курсы по программированию. Освой одну из самых востребованных профессий! У нас есть материалы как для совсем новичков, так и для матёрых профи.",
       "path": "/courses/programming/courses.html"
+    },
+    {
+      "name" : "Математика",
+      "logo": "/img/programming_course.jpg",
+      "description": "Курсы по программированию. Освой одну из самых востребованных профессий! У нас есть материалы как для совсем новичков, так и для матёрых профи.",
+      "path": "/courses/programming/courses.html"
+    },
+    {
+      "name" : "Физика",
+      "logo": "/img/programming_course.jpg",
+      "description": "Курсы по программированию. Освой одну из самых востребованных профессий! У нас есть материалы как для совсем новичков, так и для матёрых профи.",
+      "path": "/courses/programming/courses.html"
+    },
+    {
+      "name" : "Химия",
+      "logo": "/img/programming_course.jpg",
+      "description": "Курсы по программированию. Освой одну из самых востребованных профессий! У нас есть материалы как для совсем новичков, так и для матёрых профи.",
+      "path": "/courses/programming/courses.html"
+    },
+    {
+      "name" : "Биология",
+      "logo": "/img/programming_course.jpg",
+      "description": "Курсы по программированию. Освой одну из самых востребованных профессий! У нас есть материалы как для совсем новичков, так и для матёрых профи.",
+      "path": "/courses/programming/courses.html"
     }
   ]
 }
