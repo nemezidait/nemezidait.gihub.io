@@ -38,8 +38,12 @@ function insertCourses(courses) {
   $("#coursesBody").html(html);
 }
 
+function loadCourses(){
+    const settings = getCoursesSettings();
+    insertCourses(settings.courses);
+}
+
 $(document).ready(function () {
-  const settings = getCoursesSettings();
-  insertCourses(settings.courses);
+  
   
 });
