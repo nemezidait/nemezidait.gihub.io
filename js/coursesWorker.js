@@ -7,9 +7,9 @@ function getCoursesSettings() {
 
 function getCourse(courseObj) {
   let result = '<div class="probootstrap-service-2 probootstrap-animate fadeInUp probootstrap-animated"><div class="image"><div class="image-bg"><img src="' + courseObj.logo +'"></div></div>';
-  result += '<div class="text"><span class="probootstrap-meta"><i class="icon-calendar2"></i> Создан в 2021 году</span>';
+  result += '<div class="text"><span class="probootstrap-meta"><i class="icon-calendar2"></i> запущен в 2021 году</span>';
   result += '<h3>' + courseObj.name + '</h3><p>' + courseObj.description+ '</p>';
-  result += '<p><a href="' + courseObj.path + '" class="btn btn-primary">Открыть</a> <span class="enrolled-count">2,928 человек уже учатся</span></p></div>';
+  result += '<p><a href="' + courseObj.path + '" class="btn btn-primary">Открыть</a> <span class="enrolled-count">Начни изучение уже сейчас!</span></p></div>';
   return result + '</div>';
 }
 
