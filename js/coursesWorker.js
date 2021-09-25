@@ -34,16 +34,11 @@ function insertCourses(courses) {
   if (length != courses.length) {
     html += getCourseBlock(courses[length]);
   }
-  
-  $("#coursesBody").html(html);
+    
+  document.getElementById("coursesBody").InnerHTML = html;
 }
 
 function loadCourses(){
     const settings = getCoursesSettings();
     insertCourses(settings.courses);
 }
-
-$(document).ready(function () {
-  
-  
-});
