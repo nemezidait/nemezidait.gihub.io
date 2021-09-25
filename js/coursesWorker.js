@@ -22,13 +22,13 @@ function getCourseBlock(courseObj1, courseObj2 = null) {
 }
 
 function insertCourses(courses) {
-  let html = '';
+  
   let i = 0;
   let length = courses.length;
   if (courses.length % 2 != 0) {
     length--;  
   }
-  
+  let html = '';
   for(; i < length; i += 2){
     html += getCourseBlock(courses[i], courses[i + 1]);
   }
