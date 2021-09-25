@@ -35,7 +35,7 @@ function insertCourses(courses) {
     html += getCourseBlock(courses[length]);
   }
     
-  document.getElementById("coursesBody").InnerHTML = html;
+  document.getElementById("coursesBody").innerHTML = html;
 }
 
 function loadCourses(){
