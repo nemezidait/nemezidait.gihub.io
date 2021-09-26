@@ -8,7 +8,7 @@
     },
     {
         "name" : "C++ SDE",
-        "description": "Описание курса",
+        "description": "Курсы по С++. Освой один из самых мощных инструментов в арсенале программиста!",
         "logo": "/img/courses/programming/cpplogo.png",
         "path": "/courses/programming/cpp/disciplines.html"
     },
