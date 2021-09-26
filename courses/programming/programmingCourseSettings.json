@@ -20,7 +20,7 @@
     },
     {
         "name" : "Java SDE",
-        "description": "Погрузись в мир Android и Spring. Курс Java - то что нужно!",
+        "description": "Погрузись в мир Android и backend разработки. Курс Java SDE - то что нужно!",
         "logo": "/img/courses/programming/javalogo.png",
         "path": "/courses/programming/java/disciplines.html"
     },
