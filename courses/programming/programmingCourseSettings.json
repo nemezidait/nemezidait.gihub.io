@@ -20,8 +20,8 @@
     },
     {
         "name" : "Java SDE",
-        "description": "Описание курса",
-        "logo": "/img/courses/programming/cpplogo.png",
+        "description": "Погрузись в мир Android и Spring. Курс Java - то что нужно!",
+        "logo": "/img/courses/programming/javalogo.png",
         "path": "/courses/programming/java/disciplines.html"
     },
     {
