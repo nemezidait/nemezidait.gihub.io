@@ -2,7 +2,7 @@
   "disciplines": [
     {
         "name" : "Философия программирования",
-        "description": "Описание курса",
+        "description": "Базовый курс, который поможет тебе узнать про программирование и выбрать язык для дальнейшего изучения.",
         "logo": "/img/courses/programming/cpplogo.png",
         "path": "/courses/programming/philosophy.html"
     },
