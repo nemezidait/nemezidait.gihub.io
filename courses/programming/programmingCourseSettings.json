@@ -14,7 +14,7 @@
     },
     {
         "name" : ".Net SDE",
-        "description": "Описание курса",
+        "description": "Стань профессионалом в мире .Net! Начни с C# и научись создавать мощные сайты уже сейчас!",
         "logo": "/img/courses/programming/csharplogo.png",
         "path": "/courses/programming/dotnet/disciplines.html"
     },
