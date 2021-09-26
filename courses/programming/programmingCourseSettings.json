@@ -15,7 +15,7 @@
     {
         "name" : ".Net SDE",
         "description": "Описание курса",
-        "logo": "/img/courses/programming/cpplogo.png",
+        "logo": "/img/courses/programming/csharplogo.png",
         "path": "/courses/programming/dotnet/disciplines.html"
     },
     {
