@@ -40,5 +40,5 @@ function insertCourses(courses) {
 
 function loadCourses(){
     const settings = getCoursesSettings();
-    insertCourses(settings.courses);
+    insertCourses(settings.disciplines);
 }
