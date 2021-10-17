@@ -1,4 +1,4 @@
-function getCoursesSettings() {
+function getDidciplinesSettings() {
     let request = new XMLHttpRequest();
     request.open("GET", "disciplinesSettings.json", false);
     request.send(null);
