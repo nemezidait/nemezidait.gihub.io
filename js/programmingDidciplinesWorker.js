@@ -35,7 +35,7 @@ function insertDidciplines(courses) {
     html += getDidciplineBlock(courses[length]);
   }
     
-  document.getElementById("coursesBody").innerHTML = html;
+  document.getElementById("disciplinesBody").innerHTML = html;
 }
 
 function loadDidciplines(){
