@@ -4,7 +4,7 @@
         "name": "Базовый курс",
         "description": "Базовый курс по основам C++",
         "logo": "../logo.png",
-        "path": "main/themes.html"
+        "path": "basics/themes.html"
      },
      {
         "name": "Продвинутый курс",
