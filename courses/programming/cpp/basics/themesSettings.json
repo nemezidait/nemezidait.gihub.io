@@ -1,0 +1,22 @@
+{
+   "themese": [
+     {
+        "name": "Введение",
+        "description": "Базовый курс по основам C++",
+        "logo": "../logo.png",
+        "path": "theme1/lesson1.html",
+     },
+     {
+        "name": "Типы данных, ввод вывод",
+        "description": "Продвинутый курс по основам C++",
+        "logo": "../logo.png",
+        "path": "theme2/lesson1.html"
+     },
+     {
+        "name": "Указатели",
+        "description": "Курс по библиотеке boost",
+        "logo": "../logo.png",
+        "path": "theme3/lesson1.html"
+     }
+   ]
+}
