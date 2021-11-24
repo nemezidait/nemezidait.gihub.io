@@ -40,5 +40,5 @@ function insertDidciplines(didciplines) {
 
 function loadDidciplines(){
     const settings = getDidciplinesSettings();
-    insertDidciplines(settings.didciplines);
+    insertDidciplines(settings.disciplines);
 }
