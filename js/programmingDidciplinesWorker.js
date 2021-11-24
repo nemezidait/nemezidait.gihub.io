@@ -21,18 +21,18 @@ function getDidciplineBlock(didciplineObj1, didciplineObj2 = null) {
   return result + '</div>';
 }
 
-function insertDidciplines(didciplines) {
-  let length = didciplines.length;
-  if (didciplines.length % 2 != 0) {
+function insertDidciplines(disciplines) {
+  let length = disciplines.length;
+  if (disciplines.length % 2 != 0) {
     length--;  
   }
   let html = '';
   for(let i = 0; i < length; i += 2){
-    html += getDidciplineBlock(didciplines[i], didciplines[i + 1]);
+    html += getDidciplineBlock(disciplines[i], disciplines[i + 1]);
   }
   
-  if (length != didciplines.length) {
-    html += getDidciplineBlock(didciplines[length]);
+  if (length != disciplines.length) {
+    html += getDidciplineBlock(disciplines[length]);
   }
     
   document.getElementById("disciplinesBody").innerHTML = html;
