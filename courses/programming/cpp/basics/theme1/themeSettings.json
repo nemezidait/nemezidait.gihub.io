@@ -2,12 +2,14 @@
   "themeId": "theme1",
   "lessons": [
     {
+        "lessonId": "introduction",
         "name" : "Введение",
         "path": "/introduction/introduction.html"
     },
     {
+        "lessonId": "compilers",
         "name" : "Введение",
-        "path": "/introduction/introduction.html"
+        "path": "/compilers/compilers.html"
     }
   ]
 }
