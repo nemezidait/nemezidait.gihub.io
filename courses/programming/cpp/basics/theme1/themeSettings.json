@@ -1,0 +1,13 @@
+{
+  "themeId": "theme1",
+  "lessons": [
+    {
+        "name" : "Введение",
+        "path": "/introduction/introduction.html"
+    },
+    {
+        "name" : "Введение",
+        "path": "/introduction/introduction.html"
+    }
+  ]
+}
