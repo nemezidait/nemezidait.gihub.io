@@ -1,5 +1,9 @@
 "use strict";
 
+const LessonSettings = "config.json";
+const ThemeSettings = "../themeSettings.json";
+const ThemesSettings = "../../themesSettings.json";
+
 var editor = null, diffEditor = null;
 
 function initializeFileHeaders(mainFile, additionalFiles){
@@ -83,18 +87,23 @@ function loadStoredCode(settings, fileName) {
     $('.loading.editor').fadeOut({ duration: 300 });
 }
 
-function getLessonSettings(){
+function settingsLoader(settingsPath) {
     let request = new XMLHttpRequest();
-    request.open("GET", "config.json", false);
+    request.open("GET", settingsPath, false);
     request.send(null);
     return JSON.parse(request.responseText);
 }
 
-function getCourceSettings(){
-    let request = new XMLHttpRequest();
-    request.open("GET", "../courseConfig.json", false);
-    request.send(null);
-    return JSON.parse(request.responseText);
+function getLessonSettings(){
+    return settingsLoader(LessonSettings);
+}
+
+function getThemeSettings(){
+    return settingsLoader(ThemeSettings);
+}
+
+function getThemesSettings(){
+     return settingsLoader(ThemesSettings);
 }
 
 function getFileButtonId(fileName){
@@ -226,8 +235,9 @@ function setStdout(value){
 }
 
 function insertText(lessonSettings){
-    const courseSettings = getCourceSettings();
-    const currentTheme = courseSettings.themes.find(x => x.themeId === lessonSettings.themeId);
+    const themeSettings = getThemeSettings();
+    const themesSettings = getThemesSettings();
+    const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
     document.title = 'C++ ' + currentTheme.name + ' ' + lessonSettings.lessonName;
     $("#themeName").text(currentTheme.name);
     $("#lessonName").text(lessonSettings.lessonName);
