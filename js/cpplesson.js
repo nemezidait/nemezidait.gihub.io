@@ -254,7 +254,7 @@ function insertHtmlText(lessonSettings){
     const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
     document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
     $("#themeName").text(currentTheme.name);
-    $("#lessonName").text(lessonSettings.lessonName);
+    $("#lessonName").text(currentLesson.name);
     
     // set lesson body text
     $("#text-content").load("text.html");
