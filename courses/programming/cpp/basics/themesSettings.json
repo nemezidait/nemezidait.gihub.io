@@ -16,6 +16,13 @@
      },
      {
         "id": "theme3",
+        "name": "Вввод/вывод",
+        "description": "Курс по библиотеке boost",
+        "logo": "../logo.png",
+        "path": "theme3/lesson1.html"
+     },
+     {
+        "id": "theme4",
         "name": "Указатели",
         "description": "Курс по библиотеке boost",
         "logo": "../logo.png",
