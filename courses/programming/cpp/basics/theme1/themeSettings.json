@@ -3,12 +3,32 @@
   "lessons": [
     {
         "lessonId": "introduction",
-        "name" : "Введение",
+        "name" : "История развития, философия языка",
         "path": "/introduction/introduction.html"
     },
     {
         "lessonId": "compilers",
-        "name" : "Введение",
+        "name" : "Основные сферы применения",
+        "path": "/compilers/compilers.html"
+    },
+    {
+        "lessonId": "compilers",
+        "name" : "Компиляторы",
+        "path": "/compilers/compilers.html"
+    },
+    {
+        "lessonId": "compilers",
+        "name" : "Среды разработки IDE",
+        "path": "/compilers/compilers.html"
+    },
+    {
+        "lessonId": "compilers",
+        "name" : "Среды разработки (IDE)",
+        "path": "/compilers/compilers.html"
+    },
+    {
+        "lessonId": "compilers",
+        "name" : "Версии языка",
         "path": "/compilers/compilers.html"
     }
   ]
