@@ -5,7 +5,7 @@
         "name": "Введение",
         "description": "Базовый курс по основам C++",
         "logo": "../logo.png",
-        "path": "theme1/introduction.html"
+        "path": "theme1/introduction/introduction.html"
      },
      {
         "id": "theme2",
