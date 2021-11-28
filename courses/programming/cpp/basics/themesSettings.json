@@ -2,28 +2,28 @@
    "themes": [
      {
         "id": "theme1",
-        "name": "Введение",
+        "name": "1. Введение",
         "description": "Базовый курс по основам C++",
         "logo": "../logo.png",
         "path": "theme1/introduction/introduction.html"
      },
      {
         "id": "theme2",
-        "name": "Типы данных, ввод вывод",
+        "name": "2. Типы данных, ввод вывод",
         "description": "Продвинутый курс по основам C++",
         "logo": "../logo.png",
         "path": "theme2/lesson1.html"
      },
      {
         "id": "theme3",
-        "name": "Вввод/вывод",
+        "name": "3. Строки",
         "description": "Курс по библиотеке boost",
         "logo": "../logo.png",
         "path": "theme3/lesson1.html"
      },
      {
         "id": "theme4",
-        "name": "Указатели",
+        "name": "4. Указатели",
         "description": "Курс по библиотеке boost",
         "logo": "../logo.png",
         "path": "theme3/lesson1.html"
