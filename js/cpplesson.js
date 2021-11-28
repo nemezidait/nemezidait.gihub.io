@@ -234,7 +234,19 @@ function setStdout(value){
     document.getElementById('stdout').value = value;
 }
 
-function insertText(lessonSettings){
+function getLessonsHtmlMenuList(lessons, currentLessonId){
+    let menuList = '';
+    lessons.forEach((lesson, i) =>{
+        if (lesson.lessonId === currentLessonId) {
+            menuList += '<li class="active"><a>' + lesson.name + '</a></li>';
+        }
+        else {
+            menuList += '<li><a href="..' + lesson.path + '">' + lesson.name + '</a></li>';
+        }
+    });
+}
+
+function insertHtmlText(lessonSettings){
     const themeSettings = getThemeSettings();
     const themesSettings = getThemesSettings();
     const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
@@ -242,8 +254,12 @@ function insertText(lessonSettings){
     $("#themeName").text(currentTheme.name);
     $("#lessonName").text(lessonSettings.lessonName);
     
+    // set lesson body text
     $("#text-content").load("text.html");
     $("#task-content").load("task.html");
+    
+    // fill menu
+    document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
 }
 
 function clearSolution(){
@@ -378,7 +394,7 @@ function fillSampleData(settings){
 
 $(document).ready(function () {
     const settings = getLessonSettings();
-    insertText(settings);
+    insertHtmlText(settings);
     fillSampleData(settings);
     
     const storageName = getStorageName(settings);
