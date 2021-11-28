@@ -244,6 +244,7 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
             menuList += '<li><a href="..' + lesson.path + '">' + lesson.name + '</a></li>';
         }
     });
+    return menuList;
 }
 
 function insertHtmlText(lessonSettings){
