@@ -1,0 +1,24 @@
+{
+  "lessonName": "Введение",
+  "lessonId": "introduction",
+  "task": {
+    "sampleStdin": "",
+    "sampleStdout": "1 2 3 4 5 6",
+    "testCases": [
+      {
+        "stdin": "Типа пасхалка",
+        "stdout": "Hello, world!\n"
+      }
+    ],
+    "validationRules": [
+      {
+        "fileName": "main.cpp",
+        "expression" : "cout\\s*<<\\s*\"Hello, world!\"\\s*<<\\s*endl;",
+        "errorMessage" : "В main.cpp должен быть вывод \"Hello, world!\""
+      }
+    ]
+  },
+  "codePath": "code",
+  "mainCodeTemplate": "main.cpp",
+  "codeTemplates": ["example.hpp"]
+}
