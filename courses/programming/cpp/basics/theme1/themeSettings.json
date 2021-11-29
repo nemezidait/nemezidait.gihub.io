@@ -3,8 +3,13 @@
   "lessons": [
     {
         "lessonId": "introduction",
-        "name" : "История развития, философия языка",
+        "name" : "История развития",
         "path": "/introduction/introduction.html"
+    },
+    {
+        "lessonId": "philosophy",
+        "name" : "Философия языка",
+        "path": "/philosophy/philosophy.html"
     },
     {
         "lessonId": "compilers",
