@@ -393,37 +393,39 @@ function fillSampleData(settings){
     $('#sample-stdout').text(settings.task.sampleStdout);
 }
 
-$(document).ready(async function () {
-    const settings = await getLessonSettings();
-    insertHtmlText(settings);
-    fillSampleData(settings);
+$(document).ready(function () {
+    getLessonSettings().than((settings) => {
     
-    const storageName = getStorageName(settings);
-    const savedCodeJson = localStorage.getItem(storageName);
-    const languageMode = 'cpp';
-    if (savedCodeJson) {
-        // saved code from db
-        const savedCode = JSON.parse(savedCodeJson);
-        $('.loading.editor').show();
-        loadSample(languageMode, savedCode.mainFile.code);
-        updateOpenedFileValue(savedCode.mainFile.name);
-        $('.loading.editor').fadeOut({ duration: 300 });
-    }
-    else {
-        // defaul sample
-        initStorageWithTemplateCode(
-            settings,
-            () => {
-                const savedCode = JSON.parse(localStorage.getItem(storageName));
-                $('.loading.editor').show();
-                loadSample(languageMode, savedCode.mainFile.code);
-                updateOpenedFileValue(savedCode.mainFile.name);
-                $('.loading.editor').fadeOut({ duration: 300 });
-            });
-    }
-    
-    
-    initializeFileHeaders(settings.mainCodeTemplate, settings.codeTemplates);
+        insertHtmlText(settings);
+        fillSampleData(settings);
+
+        const storageName = getStorageName(settings);
+        const savedCodeJson = localStorage.getItem(storageName);
+        const languageMode = 'cpp';
+        if (savedCodeJson) {
+            // saved code from db
+            const savedCode = JSON.parse(savedCodeJson);
+            $('.loading.editor').show();
+            loadSample(languageMode, savedCode.mainFile.code);
+            updateOpenedFileValue(savedCode.mainFile.name);
+            $('.loading.editor').fadeOut({ duration: 300 });
+        }
+        else {
+            // defaul sample
+            initStorageWithTemplateCode(
+                settings,
+                () => {
+                    const savedCode = JSON.parse(localStorage.getItem(storageName));
+                    $('.loading.editor').show();
+                    loadSample(languageMode, savedCode.mainFile.code);
+                    updateOpenedFileValue(savedCode.mainFile.name);
+                    $('.loading.editor').fadeOut({ duration: 300 });
+                });
+        }
+
+
+        initializeFileHeaders(settings.mainCodeTemplate, settings.codeTemplates);
+    });
 
     window.onresize = function () {
         if (editor) {
