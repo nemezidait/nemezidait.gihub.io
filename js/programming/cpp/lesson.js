@@ -281,6 +281,7 @@ function validateCode(savedCodeDictionary, validationRules) {
     for(let i = 0; i < validationRules.length; ++i){
         const validationRule = validationRules[i];
         let rule = new RegExp(validationRule.expression, 'g');
+        console.log(validationRule.expression);
         if (!rule.test(savedCodeDictionary[validationRule.fileName])) {
             showErrorModal('Ошибка валидации!', 'Файл: ' + validationRule.fileName + '\n' + validationRule.errorMessage);
             return false;
