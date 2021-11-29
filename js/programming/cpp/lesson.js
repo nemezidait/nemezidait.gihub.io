@@ -90,7 +90,7 @@ async function settingsLoader(settingsPath) {
 }
 
 function loadHtmlDocument(path, onSuccess, onError){
-    fetch(path).then(result => { alert(result.text()); onSuccess(result.text()); } ).catch(onError);
+    fetch(path).then(result => result.text()).then(onSuccess).catch(onError);
 }
 
 async function getLessonSettings(){
