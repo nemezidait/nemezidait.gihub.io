@@ -19,5 +19,5 @@
   },
   "codePath": "code",
   "mainCodeTemplate": "main.cpp",
-  "codeTemplates": ["example.hpp"]
+  "codeTemplates": []
 }
