@@ -90,7 +90,7 @@ async function settingsLoader(settingsPath) {
 }
 
 function loadHtmlDocument(path, onSuccess, onError){
-    fetch(path).then(result => response.ok ? result.text() : '').then(onSuccess).catch(onError);
+    fetch(path).then(result => response.ok ? result.text().then(onSuccess) : onError());
 }
 
 async function getLessonSettings(){
@@ -244,11 +244,11 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
 
 function insertHtmlText(lessonSettings){
     // set lesson body text
-    loadHtmlDocument("text.html", text => document.getElementById('text-content').innerHTML = text, error => alert('Text body loading error!'));
-    loadHtmlDocument("task.html", text => document.getElementById('task-content').innerHTML = text, error => alert('Task loading error!'));
+    loadHtmlDocument("text.html", text => document.getElementById('text-content').innerHTML = text, () => alert('Text body loading error!'));
+    loadHtmlDocument("task.html", text => document.getElementById('task-content').innerHTML = text, () => alert('Task loading error!'));
     loadHtmlDocument("extendedText.html",
                      text => document.getElementById('extended-text-content').innerHTML = text,
-                     error => document.getElementById('extended-text-content').style.display = 'none');
+                     () => document.getElementById('extended-text-content').style.display = 'none');
     getThemeSettings().then(themeSettings => {
         getThemesSettings().then(themesSettings => {
             const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
