@@ -84,13 +84,17 @@ function loadStoredCode(settings, fileName) {
 }
 
 async function settingsLoader(settingsPath) {
-    return await fetch(settingsPath).then((response) => {
-    return response.json();
-    });
+    return await fetch(settingsPath).then((response) => response.json());
 }
 
-function loadHtmlDocument(path, onSuccess, onError){
-    fetch(path).then(result => response.ok ? result.text().then(onSuccess) : onError());
+async function loadHtmlDocument(path){
+    try{
+        return await fetch(path).then(result => response.ok ? result.text() : '');
+    }
+    catch(error){
+        console.log(error);
+        return '';
+    }
 }
 
 async function getLessonSettings(){
@@ -242,25 +246,24 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
     return menuList;
 }
 
-function insertHtmlText(lessonSettings){
+async function insertHtmlText(lessonSettings){
     // set lesson body text
-    loadHtmlDocument("text.html", text => document.getElementById('text-content').innerHTML = text, () => alert('Text body loading error!'));
-    loadHtmlDocument("task.html", text => document.getElementById('task-content').innerHTML = text, () => alert('Task loading error!'));
-    loadHtmlDocument("extendedText.html",
-                     text => document.getElementById('extended-text-content').innerHTML = text,
-                     () => document.getElementById('extended-text-content').style.display = 'none');
-    getThemeSettings().then(themeSettings => {
-        getThemesSettings().then(themesSettings => {
-            const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
-            const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
-            document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
-            $("#themeName").text(currentTheme.name);
-            $("#lessonName").text(currentLesson.name);
+    loadHtmlDocument("text.html").then(text => document.getElementById('text-content').innerHTML = text);
+    loadHtmlDocument("task.html").then(text => document.getElementById('task-content').innerHTML = text);
+    loadHtmlDocument("extendedText.html").then(text => text ?
+                      document.getElementById('extended-text-content').innerHTML = text :
+                      document.getElementById('extended-text-content').style.display = 'none');
+    
+    const themeSettings = await getThemeSettings();
+    const  themesSettings = getThemesSettings();
+    const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
+    const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
+    document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
+    $("#themeName").text(currentTheme.name);
+    $("#lessonName").text(currentLesson.name);
 
-            // fill menu
-            document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
-        });
-    });
+    // fill menu
+    document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
 }
 
 function dictionaryFromSavedCode(savedCode){
