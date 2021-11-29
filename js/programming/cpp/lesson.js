@@ -89,7 +89,7 @@ async function settingsLoader(settingsPath) {
 
 async function loadHtmlDocument(path){
     try{
-        return await fetch(path).then(result => response.ok ? result.text() : '').then(text => text);
+        return await fetch(path).then(response => response.ok ? response.text() : '');
     }
     catch(error){
         console.log(error);
