@@ -242,24 +242,25 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
     return menuList;
 }
 
-async function insertHtmlText(lessonSettings){
+function insertHtmlText(lessonSettings){
     // set lesson body text
     loadHtmlDocument("text.html", text => document.getElementById('text-content').innerHTML = text, error => alert('Text body loading error!'));
     loadHtmlDocument("task.html", text => document.getElementById('task-content').innerHTML = text, error => alert('Task loading error!'));
     loadHtmlDocument("extendedText.html",
                      text => document.getElementById('extended-text-content').innerHTML = text,
                      error => document.getElementById('extended-text-content').style.display = 'none');
-    
-    const themeSettings = await getThemeSettings();
-    const themesSettings = await getThemesSettings();
-    const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
-    const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
-    document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
-    $("#themeName").text(currentTheme.name);
-    $("#lessonName").text(currentLesson.name);
-    
-    // fill menu
-    document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
+    getThemeSettings().then(themeSettings => {
+        getThemesSettings().then(themesSettings => {
+            const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
+            const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
+            document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
+            $("#themeName").text(currentTheme.name);
+            $("#lessonName").text(currentLesson.name);
+
+            // fill menu
+            document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
+        });
+    });
 }
 
 function dictionaryFromSavedCode(savedCode){
