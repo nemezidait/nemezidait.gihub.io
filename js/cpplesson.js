@@ -394,7 +394,7 @@ function fillSampleData(settings){
 }
 
 $(document).ready(() => {
-    getLessonSettings().than((settings) => {
+    getLessonSettings().then((settings) => {
     
         insertHtmlText(settings);
         fillSampleData(settings);
