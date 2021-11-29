@@ -89,6 +89,10 @@ async function settingsLoader(settingsPath) {
     });
 }
 
+function loadHtmlDocument(path, onSuccess, onError){
+    fetch(path).then(onSuccess).error(onError);
+}
+
 async function getLessonSettings(){
     return await settingsLoader(LessonSettings);
 }
@@ -239,6 +243,13 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
 }
 
 async function insertHtmlText(lessonSettings){
+    // set lesson body text
+    loadHtmlDocument("text.html", text => document.getElementById('text-content').innerHTML = text, error => {});
+    loadHtmlDocument("task.html", text => document.getElementById('task-content').innerHTML = text, error => {});
+    loadHtmlDocument("extendedText.html",
+                     text => document.getElementById('extended-text-content').innerHTML = text,
+                     error => document.getElementById('extended-text-content').style.display = 'none';);
+    
     const themeSettings = await getThemeSettings();
     const themesSettings = await getThemesSettings();
     const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
@@ -246,10 +257,6 @@ async function insertHtmlText(lessonSettings){
     document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
     $("#themeName").text(currentTheme.name);
     $("#lessonName").text(currentLesson.name);
-    
-    // set lesson body text
-    $("#text-content").load("text.html");
-    $("#task-content").load("task.html");
     
     // fill menu
     document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
