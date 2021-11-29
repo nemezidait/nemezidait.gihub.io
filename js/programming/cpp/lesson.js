@@ -335,7 +335,14 @@ function showErrorModal(title, body) {
 }
 
 function fillSampleData(settings){
-    $('#sample-stdin').text(settings.task.sampleStdin);
+    if (settings.task.sampleStdin){
+        $('#sample-stdin').text(settings.task.sampleStdin);
+    }
+    else {
+        document.getElementById('sample-stdin').style.display = 'none';
+        document.getElementById('sample-stdin-label').style.display = 'none';
+    }
+    
     $('#stdin').text(settings.task.sampleStdin);
     $('#sample-stdout').text(settings.task.sampleStdout);
 }
