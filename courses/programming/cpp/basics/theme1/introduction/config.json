@@ -5,7 +5,7 @@
     "sampleStdout": "Hello, world!\n",
     "testCases": [
       {
-        "stdin": "Типа пасхалка",
+        "stdin": "",
         "stdout": "Hello, world!\n"
       }
     ],
@@ -13,7 +13,7 @@
       {
         "fileName": "main.cpp",
         "expression" : "std::cout\\s*<<\\s*\"Hello, world!\"\\s*<<\\s*endl;",
-        "errorMessage" : "В main.cpp должен быть вывод \"Hello, world!\""
+        "errorMessage" : "В main.cpp должен быть Hello World, написанный Страуструпом."
       }
     ]
   },
