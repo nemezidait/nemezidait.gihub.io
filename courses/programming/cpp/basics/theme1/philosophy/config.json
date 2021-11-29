@@ -1,0 +1,23 @@
+{
+  "lessonId": "philosophy",
+  "task": {
+    "sampleStdin": "",
+    "sampleStdout": "Hello, world!\n",
+    "testCases": [
+      {
+        "stdin": "",
+        "stdout": "Hello, world!\n"
+      }
+    ],
+    "validationRules": [
+      {
+        "fileName": "main.cpp",
+        "expression" : "std::cout << \"Hello, world!\\\\n\";",
+        "errorMessage" : "В main.cpp должен быть Hello World, написанный Страуструпом."
+      }
+    ]
+  },
+  "codePath": "code",
+  "mainCodeTemplate": "main.cpp",
+  "codeTemplates": []
+}
