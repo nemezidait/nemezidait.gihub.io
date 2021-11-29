@@ -244,8 +244,8 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
 
 async function insertHtmlText(lessonSettings){
     // set lesson body text
-    loadHtmlDocument("text.html", text => document.getElementById('text-content').innerHTML = text, error => {});
-    loadHtmlDocument("task.html", text => document.getElementById('task-content').innerHTML = text, error => {});
+    loadHtmlDocument("text.html", text => document.getElementById('text-content').innerHTML = text, error => alert('Text body loading error!'));
+    loadHtmlDocument("task.html", text => document.getElementById('task-content').innerHTML = text, error => alert('Task loading error!'));
     loadHtmlDocument("extendedText.html",
                      text => document.getElementById('extended-text-content').innerHTML = text,
                      error => document.getElementById('extended-text-content').style.display = 'none');
