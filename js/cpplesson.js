@@ -393,8 +393,8 @@ function fillSampleData(settings){
     $('#sample-stdout').text(settings.task.sampleStdout);
 }
 
-$(document).ready(function () {
-    getLessonSettings().than(settings => {
+$(document).ready(() => {
+    getLessonSettings().than((settings) => {
     
         insertHtmlText(settings);
         fillSampleData(settings);
