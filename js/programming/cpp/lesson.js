@@ -255,7 +255,7 @@ async function insertHtmlText(lessonSettings){
                       document.getElementById('extended-text-content').style.display = 'none');
     
     const themeSettings = await getThemeSettings();
-    const  themesSettings = getThemesSettings();
+    const themesSettings = await getThemesSettings();
     const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
     const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
     document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
