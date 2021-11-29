@@ -12,7 +12,7 @@
     "validationRules": [
       {
         "fileName": "main.cpp",
-        "expression" : "std::cout\\s*<<\\s*\"Hello, world!\\n\";",
+        "expression" : "std::cout\\s*<<\\s*\"Hello, world!\\\\n\";",
         "errorMessage" : "В main.cpp должен быть Hello World, написанный Страуструпом."
       }
     ]
