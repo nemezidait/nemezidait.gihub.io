@@ -2,7 +2,7 @@
   "lessonId": "introduction",
   "task": {
     "sampleStdin": "",
-    "sampleStdout": "1 2 3 4 5 6",
+    "sampleStdout": "Hello, world!\n",
     "testCases": [
       {
         "stdin": "Типа пасхалка",
@@ -12,7 +12,7 @@
     "validationRules": [
       {
         "fileName": "main.cpp",
-        "expression" : "cout\\s*<<\\s*\"Hello, world!\"\\s*<<\\s*endl;",
+        "expression" : "std::cout\\s*<<\\s*\"Hello, world!\"\\s*<<\\s*endl;",
         "errorMessage" : "В main.cpp должен быть вывод \"Hello, world!\""
       }
     ]
