@@ -248,7 +248,7 @@ async function insertHtmlText(lessonSettings){
     loadHtmlDocument("task.html", text => document.getElementById('task-content').innerHTML = text, error => {});
     loadHtmlDocument("extendedText.html",
                      text => document.getElementById('extended-text-content').innerHTML = text,
-                     error => document.getElementById('extended-text-content').style.display = 'none';);
+                     error => document.getElementById('extended-text-content').style.display = 'none');
     
     const themeSettings = await getThemeSettings();
     const themesSettings = await getThemesSettings();
