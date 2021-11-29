@@ -12,9 +12,9 @@
         "path": "/philosophy/philosophy.html"
     },
     {
-        "lessonId": "compilers",
+        "lessonId": "usecases",
         "name" : "Основные сферы применения",
-        "path": "/compilers/compilers.html"
+        "path": "/usecases/usecases.html"
     },
     {
         "lessonId": "compilers",
@@ -22,19 +22,14 @@
         "path": "/compilers/compilers.html"
     },
     {
-        "lessonId": "compilers",
-        "name" : "Среды разработки IDE",
-        "path": "/compilers/compilers.html"
-    },
-    {
-        "lessonId": "compilers",
+        "lessonId": "ides",
         "name" : "Среды разработки (IDE)",
-        "path": "/compilers/compilers.html"
+        "path": "/ides/ides.html"
     },
     {
-        "lessonId": "compilers",
+        "lessonId": "versions",
         "name" : "Версии языка",
-        "path": "/compilers/compilers.html"
+        "path": "/versions/versions.html"
     }
   ]
 }
