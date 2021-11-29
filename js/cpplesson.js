@@ -87,23 +87,22 @@ function loadStoredCode(settings, fileName) {
     $('.loading.editor').fadeOut({ duration: 300 });
 }
 
-function settingsLoader(settingsPath) {
-    let request = new XMLHttpRequest();
-    request.open("GET", settingsPath, false);
-    request.send(null);
-    return JSON.parse(request.responseText);
+async function settingsLoader(settingsPath) {
+    return await fetch(settingsPath).then((response) => {
+    return response.json();
+    });
 }
 
-function getLessonSettings(){
-    return settingsLoader(LessonSettings);
+async function getLessonSettings(){
+    return await settingsLoader(LessonSettings);
 }
 
-function getThemeSettings(){
-    return settingsLoader(ThemeSettings);
+async function getThemeSettings(){
+    return await settingsLoader(ThemeSettings);
 }
 
-function getThemesSettings(){
-     return settingsLoader(ThemesSettings);
+async function getThemesSettings(){
+     return await settingsLoader(ThemesSettings);
 }
 
 function getFileButtonId(fileName){
@@ -247,9 +246,9 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
     return menuList;
 }
 
-function insertHtmlText(lessonSettings){
-    const themeSettings = getThemeSettings();
-    const themesSettings = getThemesSettings();
+async function insertHtmlText(lessonSettings){
+    const themeSettings = await getThemeSettings();
+    const themesSettings = await getThemesSettings();
     const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
     const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
     document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
@@ -264,8 +263,8 @@ function insertHtmlText(lessonSettings){
     document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
 }
 
-function clearSolution(){
-    const settings = getLessonSettings();
+async function clearSolution(){
+    const settings = await getLessonSettings();
     initStorageWithTemplateCode(
             settings,
             () => {
@@ -274,8 +273,8 @@ function clearSolution(){
             });
 }
 
-function compile(){
-    const settings = getLessonSettings();
+async function compile(){
+    const settings = await getLessonSettings();
     const openedFileName = getOpenedFileName();
     updateStoredCode(settings, openedFileName);
     const storageName = getStorageName(settings);
@@ -303,8 +302,8 @@ function compile(){
     });
 }
 
-function runTest(){
-    const settings = getLessonSettings();
+async function runTest(){
+    const settings = await getLessonSettings();
     const openedFileName = getOpenedFileName();
     updateStoredCode(settings, openedFileName);
     const storageName = getStorageName(settings);
@@ -394,8 +393,8 @@ function fillSampleData(settings){
     $('#sample-stdout').text(settings.task.sampleStdout);
 }
 
-$(document).ready(function () {
-    const settings = getLessonSettings();
+$(document).ready(async function () {
+    const settings = await getLessonSettings();
     insertHtmlText(settings);
     fillSampleData(settings);
     
