@@ -2,22 +2,16 @@
   "lessonId": "philosophy",
   "task": {
     "sampleStdin": "",
-    "sampleStdout": "Hello, world!\n",
+    "sampleStdout": "Input: 4 2 3 1\nResult: 1 2 3 4",
     "testCases": [
       {
         "stdin": "",
-        "stdout": "Hello, world!\n"
+        "stdout": "Input: 4 2 3 1\nResult: 1 2 3 4"
       }
     ],
-    "validationRules": [
-      {
-        "fileName": "main.cpp",
-        "expression" : "std::cout << \"Hello, world!\\\\n\";",
-        "errorMessage" : "В main.cpp должен быть Hello World, написанный Страуструпом."
-      }
-    ]
+    "validationRules": []
   },
   "codePath": "code",
   "mainCodeTemplate": "main.cpp",
-  "codeTemplates": []
+  "codeTemplates": ["QuickSort.hpp", "QuickSort.cpp"]
 }
