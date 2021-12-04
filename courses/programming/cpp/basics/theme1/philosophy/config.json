@@ -2,11 +2,11 @@
   "lessonId": "philosophy",
   "task": {
     "sampleStdin": "",
-    "sampleStdout": "Input: 4 2 3 1\nResult: 1 2 3 4",
+    "sampleStdout": "Input: 4 2 3 1\nResult: 1 2 3 4 ",
     "testCases": [
       {
         "stdin": "",
-        "stdout": "Input: 4 2 3 1\nResult: 1 2 3 4"
+        "stdout": "Input: 4 2 3 1\nResult: 1 2 3 4 "
       }
     ],
     "validationRules": []
