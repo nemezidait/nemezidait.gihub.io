@@ -12,9 +12,9 @@
         "path": "/philosophy/philosophy.html"
     },
     {
-        "lessonId": "usecases",
+        "lessonId": "mainareasofapplication",
         "name" : "Основные сферы применения",
-        "path": "/usecases/usecases.html"
+        "path": "/mainareasofapplication/mainareasofapplication.html"
     },
     {
         "lessonId": "compilers",
