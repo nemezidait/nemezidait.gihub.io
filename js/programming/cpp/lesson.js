@@ -301,7 +301,7 @@ function checkTest(savedCode, testCases, testIndex = 0)
     const stdin = testCase.stdin;
     compileGccCpp(savedCode.mainFile.code,
               savedCode.additionalFiles.map(c => ({ file: c.name, code: c.code })),
-              savedCode.additionalFiles.map(c => c.name).join(' '),
+              savedCode.additionalFiles?.map(c => c.name)?.filter(c => c.endsWith('.cpp'))?.join(' '),
               stdin)
     .then(result => {
         if (result.status !== '0') {
