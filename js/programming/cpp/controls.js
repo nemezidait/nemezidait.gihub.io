@@ -32,7 +32,7 @@ async function compile(){
     
     compileGccCpp(savedCode.mainFile.code,
                   savedCode.additionalFiles.map(c => ({ file: c.name, code: c.code })),
-                  savedCode.additionalFiles?.map(c => c.name)?.filter(c => c.endsWith('.cpp'))?.join(' '),
+                  savedCode.additionalFiles?.map(c => c.name)?.join(' '),
                   stdin)
     .then(result => {
         let stdoutValue = 'status: ' + result.status + '\n';
