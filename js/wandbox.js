@@ -7,7 +7,7 @@ async function compileGccCpp(mainCode, codes, fileNames, stdin){
                 options: "warning,gnu++1y",
                 stdin: stdin,
                 compiler: "gcc-head",
-                compiler_option_raw: fileNames,
+                compiler_option_raw: "" + fileNames,
             };
   
   return postData(data);
