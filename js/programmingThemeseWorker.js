@@ -16,7 +16,7 @@ function getTheme(themeObj) {
 function getThemeBlock(themeObj1, themeObj2 = null) {
   let result = '<div class="row"><div class="col-md-6">' + getTheme(themeObj1);
   if (themeObj2){
-     result += getTheme(themeObj2);
+     result += '</div><div class="col-md-6">' + getTheme(themeObj2);
   }
   return result + '</div></div>';
 }
