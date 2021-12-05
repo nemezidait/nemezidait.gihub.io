@@ -1,6 +1,7 @@
 /* Your custom css code goes here */
 .navbar-brand-custom {
   margin: 0px !important;
+  padding: 15px 5px !important;
 }
 
 .lesson-theme-link, .lesson-theme-link:hover {
