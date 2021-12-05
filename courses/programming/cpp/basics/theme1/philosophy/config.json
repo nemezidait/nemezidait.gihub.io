@@ -12,6 +12,7 @@
     "validationRules": []
   },
   "codePath": "code",
+  "dicussionPath" : "https://github.com/nemezidait/nemezidait.github.io/discussions/3",
   "mainCodeTemplate": "main.cpp",
   "codeTemplates": ["QuickSort.hpp", "QuickSort.cpp"]
 }
