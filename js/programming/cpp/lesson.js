@@ -247,6 +247,26 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
 }
 
 async function insertHtmlText(lessonSettings){
+    fillBodyHtmlText();
+    
+    const themeSettings = await getThemeSettings();
+    const themesSettings = await getThemesSettings();
+    const currentThemeIndex = themesSettings.themes.findIndex(x => x.id === themeSettings.themeId);
+    const currentTheme = themesSettings.themes[currentThemeIndex];
+    const currentLessonIndex = themeSettings.lessons.findIndex(x => x.lessonId === lessonSettings.lessonId);
+    const currentLesson = themeSettings.lessons[currentLessonIndex];
+    document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
+    
+    document.getElementById('themeName').innerHTML = '<a class="lesson-theme-link" href="../../themes.html">' + currentTheme.name + '</a>';
+    $("#lessonName").text(currentLesson.name);
+
+    // fill menu
+    document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
+    
+    setNextLessonLinks(themeSettings, themesSettings, currentLessonIndex, currentThemeIndex);
+}
+
+function fillBodyHtmlText(){
     // set lesson body text
     loadHtmlDocument("text.html").then(text => document.getElementById('text-content').innerHTML = text);
     loadHtmlDocument("task.html").then(text => document.getElementById('task-content').innerHTML = text);
@@ -256,18 +276,25 @@ async function insertHtmlText(lessonSettings){
     
     document.getElementById('bottomDiscuss').href = lessonSettings.dicussionPath;
     document.getElementById('topDiscuss').href = lessonSettings.dicussionPath;
-    
-    const themeSettings = await getThemeSettings();
-    const themesSettings = await getThemesSettings();
-    const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
-    const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
-    document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
-    
-    document.getElementById('themeName').innerHTML = '<a class="lesson-theme-link" href="../../themes.html">' + currentTheme.name + '</a>';
-    $("#lessonName").text(currentLesson.name);
+}
 
-    // fill menu
-    document.getElementById('lessonMenu').innerHTML = getLessonsHtmlMenuList(themeSettings.lessons, lessonSettings.lessonId);
+function setNextLessonLinks(themeSettings, themesSettings, currentLessonIndex, currentThemeIndex){
+    const nextLessonIndex = currentLessonIndex + 1;
+    const nextThemeIndex = currentThemeIndex + 1;
+    
+    if (nextLessonIndex < themeSettings.lessons.length) {
+        setNextLessonHref('..' + themeSettings.lessons[nextLessonIndex].path);
+    }
+    else if (nextThemeIndex < themesSettings.themes.length) {
+        setNextLessonHref('../../' + themesSettings.themes[nextThemeIndex].path);
+    }
+}
+
+function setNextLessonHref(nextLessonPath){
+    let topNextLesson = document.getElementById('topNextLesson');
+    let bottomNextLesson = document.getElementById('bottomNextLesson');
+    topNextLesson.href = nextLessonPath;
+    bottomNextLesson.href = nextLessonPath;
 }
 
 function dictionaryFromSavedCode(savedCode){
