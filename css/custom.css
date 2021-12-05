@@ -1,1 +1,5 @@
 /* Your custom css code goes here */
+.lesson-theme-link, .lesson-theme-link:hover {
+  color: white;
+  text-decoration: inherit;
+}
