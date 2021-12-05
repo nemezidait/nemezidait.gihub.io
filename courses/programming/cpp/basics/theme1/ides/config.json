@@ -1,0 +1,17 @@
+{
+    "lessonId": "ides",
+    "task": {
+        "sampleStdin": "",
+        "sampleStdout": "Hello World!",
+        "testCases": [
+            {
+                "stdin": "",
+                "stdout": "Hello World!"
+            }
+        ],
+        "validationRules": []
+    },
+    "codePath": "code",
+    "mainCodeTemplate": "main.cpp",
+    "codeTemplates": []
+}
