@@ -9,6 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
     <link data-name="vs/editor/editor.main" rel="stylesheet" href="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
     <link rel="stylesheet" href="/css/styles-merged.css">
     <link rel="stylesheet" href="/css/style.min.css">
     <link rel="stylesheet" href="/css/custom.css">
@@ -69,35 +70,39 @@
                             <p style="margin-bottom: 5px !important;">Вывод</p>
                             <pre id="sample-stdout" style="white-space: pre-line"></pre>
                         </div>
-                        <div id="codeFiles">
-
-                        </div>
-                        <input type="hidden" id="openedFileName" name="openedFileName" value="">
-                        <div class="editor-frame">
-                            <div class="loading editor" style="display: none;">
-                                <div class="progress progress-striped active">
-                                    <div class="bar"></div>
-                                </div>
+                        <!-- Editor -->
+                        <div class="col-md-12 probootstrap-animate" id="probootstrap-content">
+                            <div id="codeFiles">
                             </div>
-                            <div style="width:100%; height:600px" id="editor"></div>
+                            <input type="hidden" id="openedFileName" name="openedFileName" value="">
+                        
+                            <div class="editor-frame">
+                                <div class="loading editor" style="display: none;">
+                                    <div class="progress progress-striped active">
+                                        <div class="bar"></div>
+                                    </div>
+                                </div>
+                                <div style="width:100%; height:600px" id="editor"></div>
+                            </div>
+                            <p>
+                                <input type="button" onclick="showTestSpinner();runTest();" class="btn btn-success" value="Отправить" />
+                                <input type="button" onclick="setStdout('Компилируем...');compile();" class="btn btn-primary" value="Компилировать" />
+                                <input type="button" onclick="clearSolution()" class="btn btn-danger" value="Очистить решение" />
+                            </p>
+                            <div class="input-group" style="width:100%;">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Ввод</span>
+                              </div>
+                              <textarea class="form-control" id="stdin" aria-label="Ввод"></textarea>
+                            </div>
+                            <div class="input-group" style="width:100%;">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Вывод</span>
+                              </div>
+                              <textarea class="programming-editor-stdout form-control" id="stdout" aria-label="Вывод" readonly></textarea>
+                            </div>
                         </div>
-                        <p>
-                            <input type="button" onclick="showTestSpinner();runTest();" class="btn btn-success" value="Отправить" />
-                            <input type="button" onclick="setStdout('Компилируем...');compile();" class="btn btn-primary" value="Компилировать" />
-                            <input type="button" onclick="clearSolution()" class="btn btn-danger" value="Очистить решение" />
-                        </p>
-                        <div class="input-group" style="width:100%;">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">Ввод</span>
-                          </div>
-                          <textarea class="form-control" id="stdin" aria-label="Ввод"></textarea>
-                        </div>
-                        <div class="input-group" style="width:100%;">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">Вывод</span>
-                          </div>
-                          <textarea class="programming-editor-stdout form-control" id="stdout" aria-label="Вывод" readonly></textarea>
-                        </div>
+                        <!-- Editor end -->
                     </div>
                 </div>
             </div>
@@ -218,6 +223,7 @@
     <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/loader.js"></script>
     <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
     <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <script src="/js/wandbox.js"></script>
     <script src="/js/programming/cpp/settings.js"></script>
     <script src="/js/programming/cpp/lesson.js"></script>
