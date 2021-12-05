@@ -1,4 +1,8 @@
 /* Your custom css code goes here */
+.navbar-brand-custom {
+  margin: 0px !important;
+}
+
 .lesson-theme-link, .lesson-theme-link:hover {
   color: white;
   text-decoration: inherit;
