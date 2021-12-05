@@ -5,7 +5,8 @@
 }
 
 .navbar-brand-custom img {
-  padding: 15px 5px !important;
+  padding: 15px 5px;
+  height: 35px;
 }
 
 .lesson-theme-link, .lesson-theme-link:hover {
