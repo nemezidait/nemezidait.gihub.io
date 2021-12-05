@@ -8,11 +8,7 @@ async function loadHtmlDocument(path){
     }
 }
 
-$(document).ready(() => {
+document.body..onload = function() {
     loadHtmlDocument("/template/headerTop.html").then(text => document.getElementById('header-top').innerHTML = text);
-    loadHtmlDocument("/template/nav.html").then(text => document.getElementById('nav').innerHTML = text)
-        .then(() => $("#nav-button").click(function() {
-                    alert( "Handler for .click() called." );
-                    $('#navbar-collapse').collapse('toggle');
-            }));
-});
+    loadHtmlDocument("/template/nav.html").then(text => document.getElementById('nav').innerHTML = text);
+};
