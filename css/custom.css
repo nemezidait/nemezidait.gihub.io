@@ -7,6 +7,10 @@
   height:200px;
   white-space: pre-wrap;
 }
+.programming-editor-stdout-group {
+  margin-bottom: 10px;
+  width:100%;
+}
 #topNextLesson, #bottomNextLesson {
  margin-right: 5px; 
 }
