@@ -3,3 +3,7 @@
   color: white;
   text-decoration: inherit;
 }
+.programming-editor-stdout {
+  height:200px;
+  white-space: pre-wrap;
+}
