@@ -11,7 +11,8 @@ async function loadHtmlDocument(path){
 $(document).ready(() => {
     loadHtmlDocument("/template/headerTop.html").then(text => document.getElementById('header-top').innerHTML = text);
     loadHtmlDocument("/template/nav.html").then(text => document.getElementById('nav').innerHTML = text)
-        .then(() => $('#navbar-collapse').on('hide.bs.collapse', function () {
-                                          $('#navbar-collapse').collapse('hide');
-                                        }));
+        .then(() => $("#nav-button").click(function() {
+                    alert( "Handler for .click() called." );
+                    $('#navbar-collapse').collapse('hide');
+            }));
 });
