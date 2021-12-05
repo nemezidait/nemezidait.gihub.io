@@ -2,11 +2,11 @@
   "lessonId": "mainareasofapplication",
   "task": {
     "sampleStdin": "",
-    "sampleStdout": "Input: 4 2 3 1\nResult: 1 2 3 4 ",
+    "sampleStdout": "Hello World!",
     "testCases": [
       {
         "stdin": "",
-        "stdout": "Input: 4 2 3 1\nResult: 1 2 3 4 "
+        "stdout": "Hello World!"
       }
     ],
     "validationRules": []
