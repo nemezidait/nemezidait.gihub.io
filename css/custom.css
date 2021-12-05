@@ -1,14 +1,4 @@
 /* Your custom css code goes here */
-.navbar-brand-custom {
-  margin: 0px !important;
-  padding: 0px !important;
-}
-
-.navbar-brand-custom img {
-  padding: 15px 5px;
-  height: 35px;
-}
-
 .lesson-theme-link, .lesson-theme-link:hover {
   color: white;
   text-decoration: inherit;
