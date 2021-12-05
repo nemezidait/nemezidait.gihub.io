@@ -259,7 +259,8 @@ async function insertHtmlText(lessonSettings){
     const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
     const currentLesson = themeSettings.lessons.find(x => x.lessonId === lessonSettings.lessonId);
     document.title = 'C++ ' + currentTheme.name + ' ' + currentLesson.name;
-    $("#themeName").text(currentTheme.name);
+    
+    document.getElementById('themeName').innerHTML = '<a href="../../themes.html">' + currentTheme.name + '</a>';
     $("#lessonName").text(currentLesson.name);
 
     // fill menu
