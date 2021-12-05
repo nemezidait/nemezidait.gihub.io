@@ -7,6 +7,6 @@
   height:200px;
   white-space: pre-wrap;
 }
-#topNextLesson {
+#topNextLesson, #bottomNextLesson {
  margin-right: 5px; 
 }
