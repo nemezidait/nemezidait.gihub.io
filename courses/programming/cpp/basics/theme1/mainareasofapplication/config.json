@@ -1,12 +1,12 @@
 {
   "lessonId": "mainareasofapplication",
   "task": {
-    "sampleStdin": "",
-    "sampleStdout": "Hello World!",
+    "sampleStdin": "there are four types of schools in the english and Welsh education system nursery primary secondary and private schools scotland has its own education system which is different",
+    "sampleStdout": "2: [and; education; schools; system; ]\n1: [Welsh; are; different; english; four; has; in; is; its; nursery; of; own; primary; private; scotland; secondary; the; there; types; which; ]\n",
     "testCases": [
       {
-        "stdin": "",
-        "stdout": "Hello World!"
+        "stdin": "there are four types of schools in the english and Welsh education system nursery primary secondary and private schools scotland has its own education system which is different",
+        "stdout": "2: [and; education; schools; system; ]\n1: [Welsh; are; different; english; four; has; in; is; its; nursery; of; own; primary; private; scotland; secondary; the; there; types; which; ]\n"
       }
     ],
     "validationRules": []
