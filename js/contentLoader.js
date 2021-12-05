@@ -8,7 +8,7 @@ async function loadHtmlDocument(path){
     }
 }
 
-function loadMainPageData(){
+$(document).ready(() => {
     loadHtmlDocument("/template/headerTop.html").then(text => document.getElementById('header-top').innerHTML = text);
     loadHtmlDocument("/template/nav.html").then(text => document.getElementById('nav').innerHTML = text);
-}
+});
