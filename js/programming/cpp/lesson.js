@@ -247,7 +247,7 @@ function getLessonsHtmlMenuList(lessons, currentLessonId){
 }
 
 async function insertHtmlText(lessonSettings){
-    fillBodyHtmlText();
+    fillBodyHtmlText(lessonSettings);
     
     const themeSettings = await getThemeSettings();
     const themesSettings = await getThemesSettings();
@@ -266,7 +266,7 @@ async function insertHtmlText(lessonSettings){
     setNextLessonLinks(themeSettings, themesSettings, currentLessonIndex, currentThemeIndex);
 }
 
-function fillBodyHtmlText(){
+function fillBodyHtmlText(lessonSettings){
     // set lesson body text
     loadHtmlDocument("text.html").then(text => document.getElementById('text-content').innerHTML = text);
     loadHtmlDocument("task.html").then(text => document.getElementById('task-content').innerHTML = text);
