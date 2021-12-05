@@ -10,5 +10,5 @@ async function loadHtmlDocument(path){
 
 $(document).ready(() => {
     loadHtmlDocument("/template/headerTop.html").then(text => document.getElementById('header-top').innerHTML = text);
-    loadHtmlDocument("/template/nav.html").then(text => document.getElementById('nav').innerHTML = text);
+    loadHtmlDocument("/template/nav.html").then(text => document.getElementById('nav').innerHTML = text).then(() => $('.collapse').collapse());
 });
