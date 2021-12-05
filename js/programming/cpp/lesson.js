@@ -254,6 +254,9 @@ async function insertHtmlText(lessonSettings){
                       document.getElementById('extended-text-content').innerHTML = text :
                       document.getElementById('extended-text-content').style.display = 'none');
     
+    document.getElementById('bottomDiscuss').href = lessonSettings.dicussionPath;
+    document.getElementById('topDiscuss').href = lessonSettings.dicussionPath;
+    
     const themeSettings = await getThemeSettings();
     const themesSettings = await getThemesSettings();
     const currentTheme = themesSettings.themes.find(x => x.id === themeSettings.themeId);
