@@ -1,6 +1,10 @@
 /* Your custom css code goes here */
 .navbar-brand-custom {
   margin: 0px !important;
+  padding: 0px !important;
+}
+
+.navbar-brand-custom img {
   padding: 15px 5px !important;
 }
 
