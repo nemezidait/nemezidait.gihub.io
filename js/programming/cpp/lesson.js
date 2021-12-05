@@ -350,41 +350,37 @@ function fillSampleData(settings){
 }
 
 $(document).ready(() => {
-    loadHtmlDocument("/template/programming/cpp/body.html")
-        .then(text => document.body.innerHTML = text)
-        .then(() => {
-            getLessonSettings().then((settings) => {
-    
-            insertHtmlText(settings);
-            fillSampleData(settings);
+    getLessonSettings().then((settings) => {
 
-            const storageName = getStorageName(settings);
-            const savedCodeJson = localStorage.getItem(storageName);
-            const languageMode = 'cpp';
-            if (savedCodeJson) {
-                // saved code from db
-                const savedCode = JSON.parse(savedCodeJson);
+    insertHtmlText(settings);
+    fillSampleData(settings);
+
+    const storageName = getStorageName(settings);
+    const savedCodeJson = localStorage.getItem(storageName);
+    const languageMode = 'cpp';
+    if (savedCodeJson) {
+        // saved code from db
+        const savedCode = JSON.parse(savedCodeJson);
+        $('.loading.editor').show();
+        loadSample(languageMode, savedCode.mainFile.code);
+        updateOpenedFileValue(savedCode.mainFile.name);
+        $('.loading.editor').fadeOut({ duration: 300 });
+    }
+    else {
+        // defaul sample
+        initStorageWithTemplateCode(
+            settings,
+            () => {
+                const savedCode = JSON.parse(localStorage.getItem(storageName));
                 $('.loading.editor').show();
                 loadSample(languageMode, savedCode.mainFile.code);
                 updateOpenedFileValue(savedCode.mainFile.name);
                 $('.loading.editor').fadeOut({ duration: 300 });
-            }
-            else {
-                // defaul sample
-                initStorageWithTemplateCode(
-                    settings,
-                    () => {
-                        const savedCode = JSON.parse(localStorage.getItem(storageName));
-                        $('.loading.editor').show();
-                        loadSample(languageMode, savedCode.mainFile.code);
-                        updateOpenedFileValue(savedCode.mainFile.name);
-                        $('.loading.editor').fadeOut({ duration: 300 });
-                    });
-            }
+            });
+    }
 
 
-            initializeFileHeaders(settings.mainCodeTemplate, settings.codeTemplates);
-        });
+    initializeFileHeaders(settings.mainCodeTemplate, settings.codeTemplates);
     });
     
 
