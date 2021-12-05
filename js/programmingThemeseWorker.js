@@ -14,11 +14,11 @@ function getTheme(themeObj) {
 }
 
 function getThemeBlock(themeObj1, themeObj2 = null) {
-  let result = '<div class="col-md-6">' + getTheme(themeObj1);
+  let result = '<div class="row"><div class="col-md-6">' + getTheme(themeObj1);
   if (themeObj2){
      result += getTheme(themeObj2);
   }
-  return result + '</div>';
+  return result + '</div></div>';
 }
 
 function insertThemes(themes) {
