@@ -13,6 +13,6 @@ $(document).ready(() => {
     loadHtmlDocument("/template/nav.html").then(text => document.getElementById('nav').innerHTML = text)
         .then(() => $("#nav-button").click(function() {
                     alert( "Handler for .click() called." );
-                    $('#navbar-collapse').collapse('hide');
+                    $('#navbar-collapse').collapse('toggle');
             }));
 });
