@@ -3,7 +3,7 @@
      {
         "id": "theme1",
         "name": "1. Введение",
-        "description": "Базовый курс по основам C++",
+        "description": "Базовый курс по основам C++. История развития языка, его философия и основные инструменты.",
         "logo": "../logo.png",
         "path": "theme1/introduction/introduction.html"
      },
