@@ -1,0 +1,40 @@
+{
+  "themeId": "theme2",
+  "lessons": [
+    {
+        "lessonId": "stricttyping",
+        "name" : "Строгая типизация",
+        "path": "/stricttyping/stricttyping.html"
+    },
+    {
+        "lessonId": "integer",
+        "name" : "Целочисленный тип",
+        "path": "/integer/integer.html"
+    },
+    {
+        "lessonId": "float",
+        "name" : "Тип с плавающей точкой",
+        "path": "/float/float.html"
+    },
+    {
+        "lessonId": "char",
+        "name" : "Символы",
+        "path": "/char/char.html"
+    },
+    {
+        "lessonId": "constants",
+        "name" : "Переменные и константы",
+        "path": "/constants/constants.html"
+    },
+    {
+        "lessonId": "definition",
+        "name" : "Объявление и инициализация",
+        "path": "/definition/definition.html"
+    },
+    {
+        "lessonId": "auto",
+        "name" : "Ключевое слово auto",
+        "path": "/auto/auto.html"
+    }
+  ]
+}
