@@ -30,16 +30,6 @@
         "lessonId": "versions",
         "name" : "Версии языка",
         "path": "/versions/versions.html"
-    },
-    {
-        "lessonId": "codestyle",
-        "name" : "Code Style",
-        "path": "/codestyle/codestyle.html"
-    },
-    {
-        "lessonId": "prosandcons",
-        "name" : "Преимущества и недостатки C++",
-        "path": "/prosandcons/prosandcons.html"
     }
   ]
 }
