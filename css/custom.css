@@ -4,7 +4,8 @@
   text-decoration: inherit;
 }
 .programming-editor-stdout {
-  height:200px;
+  min-height:200px;
+  height:100%;
   white-space: pre-wrap;
 }
 .programming-editor-stdout-group {
