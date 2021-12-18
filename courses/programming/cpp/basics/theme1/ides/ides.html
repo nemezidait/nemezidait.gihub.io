@@ -177,6 +177,7 @@
                 </div>
             </div>
         </footer>
+       
         <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" id="resultModal">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -193,22 +194,22 @@
             </div>
           </div>
         </div>
-
-        <div class="modal fade" id="testSpinner" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title" id="exampleModalLongTitle">Прогоняем тесты</h3>
-          </div>
-          <div class="modal-body">
-            <div class="d-flex align-items-center">
-              <strong>Тестируем...</strong>
-              <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
-            </div>
-          </div>
+        
+<div class="modal-nemezida" id="testSpinner" data-modal="testSpinner">
+  <article class="content-wrapper">
+    <button class="close"></button>
+    <header class="modal-nemezida-header">
+      <h3 class="modal-title" id="exampleModalLongTitle">Прогоняем тесты</h3>
+    </header>
+    <div class="content">
+        <div class="d-flex align-items-center">
+          <strong>Тестируем...</strong>
+          <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
         </div>
-      </div>
     </div>
+  </article>
+</div>
+        
     </div>
     <!-- END wrapper -->
 
