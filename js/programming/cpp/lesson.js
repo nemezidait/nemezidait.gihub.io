@@ -352,7 +352,7 @@ function checkTest(savedCode, testCases, testIndex = 0)
 
 function showSuccessModal() {
     $('#resultModalTitle').html('Тесты пройдены!');
-    const formattedBody = '<div class="alert alert-success" role="alert"><h6>Все тесты успешно пройдены!<h6></div>';
+    const formattedBody = '<div class="alert-success"><h4>Все тесты успешно пройдены!<h4></div>';
     $('#resultModalBody').html(formattedBody);
     hideModal('testSpinner');
     showModal('resultModal');
@@ -362,7 +362,7 @@ function showSuccessModal() {
 
 function showErrorModal(title, body) {
     $('#resultModalTitle').html(title);
-    const formattedBody = '<div class="alert alert-danger" role="alert" style="white-space: pre-line">' + body + '</div>';
+    const formattedBody = '<div class="alert-danger" style="white-space: pre-line">' + body + '</div>';
     $('#resultModalBody').html(formattedBody);
     hideModal('testSpinner');
     showModal('resultModal');
