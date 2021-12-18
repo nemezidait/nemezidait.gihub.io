@@ -27,7 +27,7 @@
         </div>
         <nav class="navbar navbar-default probootstrap-navbar" id="nav">
         </nav>
-
+        
         <section class="probootstrap-section probootstrap-section-colored">
             <div class="container">
                 <div class="row">
@@ -177,38 +177,41 @@
                 </div>
             </div>
         </footer>
-        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" id="resultModal">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3 class="modal-title" id="resultModalTitle"></h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body" id="resultModalBody">
-              </div>
-              <div class="modal-footer" id="resultModalFooter">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal fade" id="testSpinner" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title" id="exampleModalLongTitle">Прогоняем тесты</h3>
-          </div>
-          <div class="modal-body">
-            <div class="d-flex align-items-center">
-              <strong>Тестируем...</strong>
-              <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+        
+<div class="modal-nemezida" id="resultModal" data-modal="resultModal">
+  <article class="content-wrapper modal-dialog-centered">
+    <header class="modal-nemezida-header">
+      <h3 class="modal-title" id="resultModalTitle"></h3>
+    </header>
+    <div class="content" id="resultModalBody">
     </div>
+    <footer class="modal-footer">
+    </footer>
+  </article>
+</div>
+        
+<div class="modal-nemezida" id="testSpinner" data-modal="testSpinner">
+  <article class="content-wrapper modal-dialog-centered">
+    <header class="modal-nemezida-header">
+      <h3 class="modal-title" id="exampleModalLongTitle">Прогоняем тесты</h3>
+    </header>
+    <div class="content">
+        <div class="spinner">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+        </div>
+    </div>
+  </article>
+</div>
+        
     </div>
     <!-- END wrapper -->
 
