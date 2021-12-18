@@ -5,7 +5,8 @@ function setStdout(value){
 }
 
 function showTestSpinner(){
-    $('#testSpinner').modal('show');
+    showModal('testSpinner');
+    // $('#testSpinner').modal('show');
 }
 
 async function runTest(){
