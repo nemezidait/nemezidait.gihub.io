@@ -355,8 +355,9 @@ function showSuccessModal() {
     const formattedBody = '<div class="alert alert-success" role="alert"><h6>Все тесты успешно пройдены!<h6></div>';
     $('#resultModalBody').html(formattedBody);
     hideModal('testSpinner');
+    showModal('resultModal');
     // $('#testSpinner').modal('hide');
-    $('#resultModal').modal('show');
+    //$('#resultModal').modal('show');
 }
 
 function showErrorModal(title, body) {
@@ -364,8 +365,9 @@ function showErrorModal(title, body) {
     const formattedBody = '<div class="alert alert-danger" role="alert" style="white-space: pre-line">' + body + '</div>';
     $('#resultModalBody').html(formattedBody);
     hideModal('testSpinner');
+    showModal('resultModal');
     // $('#testSpinner').modal('hide');
-    $('#resultModal').modal('show');
+    //$('#resultModal').modal('show');
 }
 
 function fillSampleData(settings){
