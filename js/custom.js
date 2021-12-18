@@ -12,3 +12,8 @@ function showModal(modalId){
     
     modal.classList.toggle('open');
 }
+
+function hideModal(modalId){
+    const modal = document.getElementById(modalId); 
+    modal.classList.remove('open');
+}
