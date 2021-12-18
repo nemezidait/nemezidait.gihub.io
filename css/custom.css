@@ -146,12 +146,7 @@
   transition: width 0.25s;
   z-index: 0;
 }
-.modal-nemezida .content-wrapper .modal-nemezida-footer .action:first-child {
-  background-color: #2ecc71;
-}
-.modal-nemezida .content-wrapper .modal-footer .action:last-child {
-  background-color: #e74c3c;
-}
+
 .modal-nemezida .content-wrapper .modal-nemezida-footer .action:hover:before {
   width: 100%;
 }
