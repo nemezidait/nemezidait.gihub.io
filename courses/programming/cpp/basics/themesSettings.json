@@ -7,13 +7,13 @@
         "logo": "../logo.png",
         "path": "theme1/introduction/introduction.html"
      },
-     {
+    {
         "id": "theme2",
         "name": "2. Типы данных",
         "description": "Рассмотрим типы данных в С++, понятие переменной, отличие переменных от констант, объявление и инициализацию",
         "logo": "../logo.png",
-        "path": "theme2/lesson1.html"
-     },
+        "path": "theme2/stricttyping/stricttyping.html"
+    },
      {
         "id": "theme3",
         "name": "3. Области видимости, приведение типов",
