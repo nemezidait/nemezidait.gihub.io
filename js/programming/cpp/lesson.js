@@ -356,8 +356,6 @@ function showSuccessModal() {
     $('#resultModalBody').html(formattedBody);
     hideModal('testSpinner');
     showModal('resultModal');
-    // $('#testSpinner').modal('hide');
-    //$('#resultModal').modal('show');
 }
 
 function showErrorModal(title, body) {
@@ -366,8 +364,6 @@ function showErrorModal(title, body) {
     $('#resultModalBody').html(formattedBody);
     hideModal('testSpinner');
     showModal('resultModal');
-    // $('#testSpinner').modal('hide');
-    //$('#resultModal').modal('show');
 }
 
 function fillSampleData(settings){
