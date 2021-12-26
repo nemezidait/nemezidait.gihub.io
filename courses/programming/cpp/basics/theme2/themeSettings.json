@@ -3,8 +3,13 @@
   "lessons": [
     {
         "lessonId": "stricttyping",
-        "name" : "Строгая типизация",
+        "name" : "Статическая типизация",
         "path": "/stricttyping/stricttyping.html"
+    },
+    {
+        "lessonId": "programstructure",
+        "name": "Структура программы",
+        "path": "/programstructure/programstructure.html"
     },
     {
         "lessonId": "integer",
