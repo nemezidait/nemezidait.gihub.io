@@ -268,14 +268,30 @@ async function insertHtmlText(lessonSettings){
 
 function fillBodyHtmlText(lessonSettings){
     // set lesson body text
-    loadHtmlDocument("text.html").then(text => document.getElementById('text-content').innerHTML = text);
+    loadHtmlDocument("text.html").then(text => {
+        let textContext = document.getElementById('text-content');
+        textContext.innerHTML = text;
+        renderCodeSamples(textContext);
+    });
     loadHtmlDocument("task.html").then(text => document.getElementById('task-content').innerHTML = text);
-    loadHtmlDocument("extendedText.html").then(text => text ?
-                      document.getElementById('extended-text-content').innerHTML = text :
-                      document.getElementById('extended-text-content').style.display = 'none');
+    loadHtmlDocument("extendedText.html").then(text => {
+        if (text) {
+            let extendedTextContext = document.getElementById('extended-text-content');
+            extendedTextContext.innerHTML = text;
+            renderCodeSamples(extendedTextContext);
+        }
+        else {
+            document.getElementById('extended-text-content').style.display = 'none'
+        }
+    });
     
     document.getElementById('bottomDiscuss').href = lessonSettings.dicussionPath;
     document.getElementById('topDiscuss').href = lessonSettings.dicussionPath;
+}
+
+function renderCodeSamples(rootElement) {
+    var scripts = rootElement.getElementsByTagName("script");
+    [...scripts].forEach(script => renderGithubSample(script));
 }
 
 function setNextLessonLinks(themeSettings, themesSettings, currentLessonIndex, currentThemeIndex){
