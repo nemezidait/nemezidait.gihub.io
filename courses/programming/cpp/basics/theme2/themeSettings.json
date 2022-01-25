@@ -12,6 +12,11 @@
         "path": "/programstructure/programstructure.html"
     },
     {
+      "lessonId": "variables",
+      "name": "Переменные, константы и области видимости",
+      "path": "/variables/variables.html"
+    },
+    {
         "lessonId": "integer",
         "name" : "Целочисленный тип",
         "path": "/integer/integer.html"
@@ -25,11 +30,6 @@
         "lessonId": "char",
         "name" : "Символы",
         "path": "/char/char.html"
-    },
-    {
-        "lessonId": "constants",
-        "name" : "Переменные и константы",
-        "path": "/constants/constants.html"
     },
     {
         "lessonId": "definition",

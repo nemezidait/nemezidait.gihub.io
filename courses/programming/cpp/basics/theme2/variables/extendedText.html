@@ -1,0 +1,17 @@
+﻿<p>Что такое аргументы функции будет рассмотрена в следующих уроках. Сейчас же стоит обратить внимание на два принимаемых функцией <code>main</code> аргумента: <code>argc</code> и <code>argv</code>. 
+   Через эти аргументы можно получить данные, которые могут быть переданы в качестве параметров запуска приложения. Например:</p>
+<p><code>MyProgram.exe -silent -input-file data.txt -output-file result.txt</code></p>
+<p>В примере при запуске программы <strong>MyProgram.exe</strong> ей передаются <strong>5</strong> аргументов: <code>-silent</code>, <code>-input-file</code>, <code>data.txt</code>, <code>-output-file</code> и <code>result.txt</code></p>
+<p><strong>argc</strong> &mdash; неотрицательное значение, указывающее сколько аргументов было передано при запуске программы.</p>
+<p><strong>argv &mdash;</strong> указатель на массив строк. Каждый элемент массива указывает на аргументы командной строки.</p>
+<p>Из примера:</p>
+<p>
+    <code>
+        argc = 5
+        argv[0] = "-silent"
+        argv[1] = "-input-file"
+        argv[2] = "data.txt"
+        argv[3] = "-output-file"
+        argv[4] = "result.txt"
+    </code>
+</p>
