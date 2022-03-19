@@ -624,7 +624,4 @@
 		owlCarousel();
 		flexSlider();
 	});
-
-	
-
 })();

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/styles-merged.css">
     <link rel="stylesheet" href="/css/style.min.css">
     <link rel="stylesheet" href="/css/custom.css">
-
+    <link rel="stylesheet" href="/css/services/cv/generator.css">
     <!--[if lt IE 9]>
       <script src="js/vendor/html5shiv.min.js"></script>
       <script src="js/vendor/respond.min.js"></script>
@@ -43,8 +43,6 @@
               </div>
           </section>
 
-
-
           <section class="probootstrap-section probootstrap-section-sm">
               <div class="container">
                   <div class="row">
@@ -57,29 +55,95 @@
 
                                           <li><a href="index.html">Шаблоны</a></li>
                                           <li><a href="courses.html">Дизайн</a></li>
+                                          <li><a href="teachers.html">Советы</a></li>
                                           <li><a href="teachers.html">Профессиональная помощь</a></li>
                                       </ul>
                                   </div>
                               </div>
                               <div class="col-md-7 col-md-push-1  probootstrap-animate" id="probootstrap-content">
-                                  <h2>Get In Touch</h2>
-                                  <p>Contact us using the form below.</p>
-                                  <form action="#" method="post" class="probootstrap-form">
-                                      <div class="form-group">
-                                          <label for="name">Full Name</label>
-                                          <input type="text" class="form-control" id="name" name="name">
+                                <h2>Создание резюме</h2>
+                                <h6>* &ndash; обязательное для заполнения поле</h6>
+                                <form action="#" method="post" class="probootstrap-form">
+                                <div class="form-group col-md-12">
+                                    <label for="address">Позиция*</label>
+                                    <input placeholder="Junior JS SDE" type="text" class="form-control" id="address" name="address" required>
+                                </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="name">Имя*</label>
+                                        <input placeholder="Джон" type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="surname">Фамилия*</label>
+                                        <input placeholder="Джонсон" type="text" class="form-control" id="surname" name="surname" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="phone">Телефон*</label>
+                                        <input placeholder="88005553535" type="tel" class="form-control" id="phone" name="phone" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Email*</label>
+                                        <input placeholder="cvgenerator@nemezida.it" type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="address">Адрес*</label>
+                                        <input placeholder="191024, г. Санкт-Петербург, ул. Херсонская, д. 12-14, лит. А, ПОМЕЩ. 1-Н" type="text" class="form-control" id="address" name="address" required>
+                                    </div>
+                                    <div id="accordion" class="form-group">
+                                        <div class="card col-md-12">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0">
+                                                <input type="button" class="btn btn-full-size" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" value="Указать ссылки на социальные сети и сайты (опционально)" />
+                                                </h5>
+                                            </div>
+                                        
+                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="github">GitHub</label>
+                                                    <input placeholder="https://github.com/" type="url" class="form-control" id="github" name="github">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="linkedin">LinkedIn</label>
+                                                    <input placeholder="https://linkedin.com/" type="url" class="form-control" id="linkedin" name="linkedin">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="headhunter">HeadHunter</label>
+                                                    <input placeholder="https://hh.ru/" type="url" class="form-control" id="headhunter" name="headhunter">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="perstonalsite">Личный сайт</label>
+                                                    <input placeholder="https://nemezidait.github.io/" type="url" class="form-control" id="perstonalsite" name="perstonalsite">
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="keyskills">Обо мне*</label>
+                                        <textarea required cols="30" rows="5" class="form-control" id="keyskills" name="keyskills" placeholder="Опытный JavaScript разработчик с 8 года стажа. Отличное понимание SDLC, опыт успешных запусков проектов с 0, работал в международных распределённых командах. Принимаю активное участие в развитии JS сообщества, всегда открыт к новым сложным и интересным задачам."></textarea>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="keyskills">Ключевые навыки*</label>
+                                        <textarea required cols="30" rows="5" class="form-control" id="keyskills" name="keyskills" placeholder="JavaScript, TypeScript, HTML5, CSS3/SCSS/SASS, React, MobX, Redux, Jest, Design Patterns, UI/UX"></textarea>
+                                    </div>
+                                    <div class="form-check col-md-12">
+                                        <input type="checkbox" class="form-check-input has-expirience" id="has-no-expirience" onclick="hasExpirienceChanged()">
+                                        <label class="form-check-label" for="has-no-expirience">Нет опыта работы</label>
                                       </div>
-                                      <div class="form-group">
-                                          <label for="email">Email</label>
-                                          <input type="email" class="form-control" id="email" name="email">
+                                      <div id="no-expirience">
+                                        <div class="form-group col-md-12">
+                                            <label for="message">Общее описание навыков*</label>
+                                            <textarea required cols="30" rows="5" class="form-control" id="message" name="message" placeholder="Обучаюсь на 1 курсе СПБГУ, прошёл курсы по JavaScript на https://nemezidait.github.io/. Участвовал в областных и международных олимпиадах, занимал призовые и первые места. Активно изучаю React."></textarea>
+                                        </div>
                                       </div>
-                                      <div class="form-group">
-                                          <label for="subject">Subject</label>
-                                          <input type="text" class="form-control" id="subject" name="subject">
+                                      
+                                      <div id="work-expirience">
+                                        <label for="message">Message</label>
+                                        <textarea cols="30" rows="5" class="form-control" id="message" name="message"></textarea>
                                       </div>
-                                      <div class="form-group">
+                                      <div id="msg" class="form-group">
                                           <label for="message">Message</label>
-                                          <textarea cols="30" rows="10" class="form-control" id="message" name="message"></textarea>
+                                          <textarea cols="30" rows="5" class="form-control" id="message" name="message"></textarea>
                                       </div>
                                       <div class="form-group">
                                           <input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" value="Оформить">
@@ -171,6 +235,6 @@
       <script src="/js/main.min.js"></script>
       <script src="/js/custom.js"></script>
       <script src="/js/contentLoader.js"></script>
-
+      <script src="/js/srevices/generators/cv.js"></script>
   </body>
 </html>
