@@ -10,3 +10,9 @@
     text-align:
      center;width: 100%;
 }
+
+.btn-mrgn {
+    margin-bottom: 15px !important;
+    align-items: center;
+    text-align: center;
+}
