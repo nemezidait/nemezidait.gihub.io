@@ -194,7 +194,7 @@
                                                         работы</label>
                                                 </div>
                                                 <div id="msg" class="form-group col-md-12">
-                                                    <label for="message">Обязанности и достижения</label>
+                                                    <label for="message">Обязанности и достижения*</label>
                                                     <textarea cols="30" rows="5" class="form-control" id="message"
                                                         name="message"
                                                         placeholder="Занимался поддержкой и улучшением текущего функционала сайта. Ускорил поиск по сайту. Перевёл основную часть legacy страниц на React."></textarea>
@@ -206,6 +206,35 @@
                                                 <h5 class="mb-0">
                                                     <input onclick="addWorkExpirienceToList()" type="button"
                                                         class="btn btn-full-size" value="Добавить компанию и позицию" />
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="my-4 col-md-12">
+
+                                    <div id="native-languages">
+                                        <div id="native-languages-list">
+                                            <section>
+                                                <div class="form-group col-md-6">
+                                                    <label for="language">Язык*</label>
+                                                    <input placeholder="Русский" type="text" class="form-control" id="language" name="language">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="grade">Уровень владения</label>
+                                                    <select class="form-control" id="grade">
+                                                        <option selected value="native">Родной</option>
+                                                        <option value="pre-intermediate">Начальный</option>
+                                                        <option value="intermediate">Средний</option>
+                                                        <option value="upper-intermediate">Продвинутый</option>
+                                                      </select>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div class="card col-md-12">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0">
+                                                    <input onclick="addNativeLanguageToList()" type="button"
+                                                        class="btn btn-full-size" value="Добавить язык" />
                                                 </h5>
                                             </div>
                                         </div>
@@ -227,7 +256,7 @@
                                         <input type="submit" class="btn btn-info btn-lg" id="submit" name="submit"
                                             value="Загрузить сохранённое">
                                     </div>
-                            </div>
+                                </div>
                             </form>
                         </div>
                     </div>

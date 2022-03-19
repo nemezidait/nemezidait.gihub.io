@@ -1,3 +1,4 @@
+/* Work expirience */
 function hasExpirienceChanged() {
     let hasNoExpiriense = document.getElementById('has-no-expirience');
     let workExpirience = document.getElementById('work-expirience');
@@ -48,7 +49,7 @@ function createWorkExpirienceElement() {
     <label class="form-check-label" for="current-job">Текущее место работы</label>
 </div>
 <div id="msg" class="form-group col-md-12">
-    <label for="message">Обязанности и достижения</label>
+    <label for="message">Обязанности и достижения*</label>
     <textarea cols="30" rows="5" class="form-control" id="message"
         name="message"
         placeholder="Занимался поддержкой и улучшением текущего функционала сайта. Ускорил поиск по сайту. Перевёл основную часть legacy страниц на React."></textarea>
@@ -65,11 +66,53 @@ function addWorkExpirienceToList() {
     deleteButton.type = 'button';
     deleteButton.value = 'Удалить';
     deleteButton.classList.add('btn', 'btn-danger', 'btn-full-size');
-    deleteButton.onclick = () => {
-        workExpirienceList.removeChild(workExpirienceElement);
-    };
     deleteButtonContainer.appendChild(deleteButton);
     workExpirienceElement.appendChild(deleteButtonContainer);
     let workExpirienceList = document.getElementById('work-expirience-list');
+    deleteButton.onclick = () => {
+        workExpirienceList.removeChild(workExpirienceElement);
+    };
     workExpirienceList.appendChild(workExpirienceElement);
 }
+
+/* END Work expirience */
+
+/* Native languages */
+
+function createNativeLanguageElement() {
+    let container = document.createElement('section');
+    container.innerHTML = `<div class="form-group col-md-6">
+    <label for="language">Язык*</label>
+    <input placeholder="Русский" type="text" class="form-control" id="language" name="language">
+</div>
+<div class="form-group col-md-6">
+    <label for="grade">Уровень владения</label>
+    <select class="form-control" id="grade">
+        <option selected value="native">Родной</option>
+        <option value="pre-intermediate">Начальный</option>
+        <option value="intermediate">Средний</option>
+        <option value="upper-intermediate">Продвинутый</option>
+      </select>
+</div>`;
+    return container;
+}
+
+function addNativeLanguageToList(){
+    let nativeLanguageElement = createNativeLanguageElement();
+    // Add delete button to the work expirience element
+    let deleteButtonContainer = document.createElement('h5');
+    deleteButtonContainer.classList.add('mb-0', 'col-md-12');
+    let deleteButton = document.createElement('input');
+    deleteButton.type = 'button';
+    deleteButton.value = 'Удалить';
+    deleteButton.classList.add('btn', 'btn-danger', 'btn-full-size');
+    deleteButtonContainer.appendChild(deleteButton);
+    nativeLanguageElement.appendChild(deleteButtonContainer);
+    let nativeLanguagesList = document.getElementById('native-languages-list');
+    deleteButton.onclick = () => {
+        nativeLanguagesList.removeChild(nativeLanguageElement);
+    };
+    nativeLanguagesList.appendChild(nativeLanguageElement);
+}
+
+/* END Native languages */
