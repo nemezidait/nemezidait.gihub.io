@@ -48,10 +48,10 @@ function createWorkExpirienceElement() {
         id="current-job" onclick="currentJob(this)">
     <label class="form-check-label" for="current-job">Текущее место работы</label>
 </div>
-<div id="msg" class="form-group col-md-12">
-    <label for="message">Обязанности и достижения*</label>
-    <textarea cols="30" rows="5" class="form-control" id="message"
-        name="message"
+<div class="form-group col-md-12">
+    <label for="work-description">Обязанности и достижения*</label>
+    <textarea required cols="30" rows="5" class="form-control" id="work-description"
+        name="work-description"
         placeholder="Занимался поддержкой и улучшением текущего функционала сайта. Ускорил поиск по сайту. Перевёл основную часть legacy страниц на React."></textarea>
 </div>`;
     return container;
@@ -83,7 +83,7 @@ function createNativeLanguageElement() {
     let container = document.createElement('section');
     container.innerHTML = `<div class="form-group col-md-6">
     <label for="language">Язык*</label>
-    <input placeholder="Русский" type="text" class="form-control" id="language" name="language">
+    <input required placeholder="Русский" type="text" class="form-control" id="language" name="language">
 </div>
 <div class="form-group col-md-6">
     <label for="grade">Уровень владения</label>
@@ -99,7 +99,7 @@ function createNativeLanguageElement() {
 
 function addNativeLanguageToList(){
     let nativeLanguageElement = createNativeLanguageElement();
-    // Add delete button to the work expirience element
+    // Add delete button to the nativa language element
     let deleteButtonContainer = document.createElement('h5');
     deleteButtonContainer.classList.add('mb-0', 'col-md-12');
     let deleteButton = document.createElement('input');
@@ -116,3 +116,59 @@ function addNativeLanguageToList(){
 }
 
 /* END Native languages */
+
+/* Education */
+
+function createEducationElement() {
+    let container = document.createElement('section');
+    container.innerHTML = `<div class="form-group col-md-6">
+    <label for="date-start">Начало обучения*</label>
+    <input type="date" class="form-control" id="date-start"
+        name="date-start">
+</div>
+<div id="date-end-container" class="form-group col-md-6">
+    <label for="date-end">Окончание обучения*</label>
+    <input type="date" class="form-control" id="date-end"
+        name="date-end">
+</div>
+<div class="form-group col-md-12">
+    <label for="schoolName">Название учебного заведения*</label>
+    <input required placeholder="СПБГУ" type="text" class="form-control" id="schoolName" name="schoolName">
+</div>
+<div class="form-group col-md-6">
+    <label for="scpeciality">Направление*</label>
+    <input required placeholder="Информационные технологии" type="text" class="form-control" id="scpeciality" name="scpeciality">
+</div>
+<div class="form-group col-md-6">
+    <label for="grade">Степень</label>
+    <select class="form-control" id="grade">
+        <option selected value="primary">Начальное</option>
+        <option value="middle">Среднее специальное</option>
+        <option value="bachelor">Бакалавр</option>
+        <option value="master">Магистр</option>
+        <option value="phd">Кандидат наук</option>
+        <option value="doctor">Доктор</option>
+      </select>
+</div>`;
+    return container;
+}
+
+function addEducationToList(){
+    let educationElement = createEducationElement();
+    // Add delete button to the education element
+    let deleteButtonContainer = document.createElement('h5');
+    deleteButtonContainer.classList.add('mb-0', 'col-md-12');
+    let deleteButton = document.createElement('input');
+    deleteButton.type = 'button';
+    deleteButton.value = 'Удалить';
+    deleteButton.classList.add('btn', 'btn-danger', 'btn-full-size');
+    deleteButtonContainer.appendChild(deleteButton);
+    educationElement.appendChild(deleteButtonContainer);
+    let educationList = document.getElementById('education-list');
+    deleteButton.onclick = () => {
+        educationList.removeChild(educationElement);
+    };
+    educationList.appendChild(educationElement);
+}
+
+/* END Education */

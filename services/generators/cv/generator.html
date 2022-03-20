@@ -156,9 +156,9 @@
                                     </div>
                                     <div id="no-expirience">
                                         <div class="form-group col-md-12">
-                                            <label for="message">Общее описание навыков*</label>
-                                            <textarea required cols="30" rows="5" class="form-control" id="message"
-                                                name="message"
+                                            <label for="no-expirience-description">Общее описание навыков*</label>
+                                            <textarea required cols="30" rows="5" class="form-control" id="no-expirience-description"
+                                                name="no-expirience-description"
                                                 placeholder="Обучаюсь на 1 курсе СПБГУ, прошёл курсы по JavaScript на https://nemezidait.github.io/. Участвовал в областных и международных олимпиадах, занимал призовые и первые места. Активно изучаю React."></textarea>
                                         </div>
                                     </div>
@@ -193,10 +193,10 @@
                                                     <label class="form-check-label" for="current-job">Текущее место
                                                         работы</label>
                                                 </div>
-                                                <div id="msg" class="form-group col-md-12">
-                                                    <label for="message">Обязанности и достижения*</label>
-                                                    <textarea cols="30" rows="5" class="form-control" id="message"
-                                                        name="message"
+                                                <div class="form-group col-md-12">
+                                                    <label for="work-description">Обязанности и достижения*</label>
+                                                    <textarea required cols="30" rows="5" class="form-control" id="work-description"
+                                                        name="work-description"
                                                         placeholder="Занимался поддержкой и улучшением текущего функционала сайта. Ускорил поиск по сайту. Перевёл основную часть legacy страниц на React."></textarea>
                                                 </div>
                                             </section>
@@ -217,7 +217,7 @@
                                             <section>
                                                 <div class="form-group col-md-6">
                                                     <label for="language">Язык*</label>
-                                                    <input placeholder="Русский" type="text" class="form-control" id="language" name="language">
+                                                    <input required placeholder="Русский" type="text" class="form-control" id="language" name="language">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="grade">Уровень владения</label>
@@ -239,10 +239,58 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="msg" class="form-group col-md-12">
-                                        <label for="message">Message</label>
-                                        <textarea cols="30" rows="5" class="form-control" id="message"
-                                            name="message"></textarea>
+                                    <hr class="my-4 col-md-12">
+
+                                    <div id="education">
+                                        <div id="education-list">
+                                            <section>
+                                                <div class="form-group col-md-6">
+                                                    <label for="date-start">Начало обучения*</label>
+                                                    <input type="date" class="form-control" id="date-start"
+                                                        name="date-start">
+                                                </div>
+                                                <div id="date-end-container" class="form-group col-md-6">
+                                                    <label for="date-end">Окончание обучения*</label>
+                                                    <input type="date" class="form-control" id="date-end"
+                                                        name="date-end">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="schoolName">Название учебного заведения*</label>
+                                                    <input required placeholder="СПБГУ" type="text" class="form-control" id="schoolName" name="schoolName">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="scpeciality">Направление*</label>
+                                                    <input required placeholder="Информационные технологии" type="text" class="form-control" id="scpeciality" name="scpeciality">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="grade">Степень</label>
+                                                    <select class="form-control" id="grade">
+                                                        <option selected value="primary">Начальное</option>
+                                                        <option value="middle">Среднее специальное</option>
+                                                        <option value="bachelor">Бакалавр</option>
+                                                        <option value="master">Магистр</option>
+                                                        <option value="phd">Кандидат наук</option>
+                                                        <option value="doctor">Доктор</option>
+                                                      </select>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div class="card col-md-12">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0">
+                                                    <input onclick="addEducationToList()" type="button"
+                                                        class="btn btn-full-size" value="Добавить учебное заведение" />
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="my-4 col-md-12">
+
+                                    <div class="form-group col-md-12">
+                                        <label for="certificates">Сертификаты и рекомендации</label>
+                                        <textarea cols="30" rows="5" class="form-control" id="certificates"
+                                            name="certificates"
+                                            placeholder="Сертификация MDN, AWS, Microsoft Cloud Architect"></textarea>
                                     </div>
                                     <div class="btn-mrgn form-group col-md-3">
                                         <input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit"
