@@ -1,0 +1,78 @@
+{
+    "grades": [
+        {
+            "name": "Junior",
+            "path": "junior"
+        },
+        {
+            "name": "Middle",
+            "path": "middle"
+        },
+        {
+            "name": "Senior",
+            "path": "senior"
+        },
+        {
+            "name": "Trainee",
+            "path": "trainee"
+        }
+    ],
+    "positions": [
+        {
+            "name" : "C++",
+            "fileName" : "cpp.json"
+        },
+        {
+            "name" : "C# Backend Asp.Net",
+            "fileName" : "cshAspNet.json"
+        },
+        {
+            "name" : "C# Desktop",
+            "fileName" : "cshDesktop.json"
+        },
+        {
+            "name" : "Java Mobile (Android)",
+            "fileName" : "javaMobile.json"
+        },
+        {
+            "name" : "Java Backend Web",
+            "fileName" : "javaWeb.json"
+        },
+        {
+            "name" : "JS Backend Node.Js",
+            "fileName" : "jsNodeJs.json"
+        },
+        {
+            "name" : "JS Frontend React",
+            "fileName" : "jsReact.json"
+        },
+        {
+            "name" : "JS Frontend Vue",
+            "fileName" : "jsVue.json"
+        },
+        {
+            "name" : "Kotlin",
+            "fileName" : "kotlin.json"
+        },
+        {
+            "name" : "Python Data Science",
+            "fileName" : "pythonDataScience.json"
+        },
+        {
+            "name" : "Python Backend Django",
+            "fileName" : "pythonDjango.json"
+        },
+        {
+            "name" : "QA",
+            "fileName" : "qa.json"
+        },
+        {
+            "name" : "SDET",
+            "fileName" : "sdet.json"
+        },
+        {
+            "name" : "Swift",
+            "fileName" : "swift.json"
+        }
+    ]
+}
